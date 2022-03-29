@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chatbot</title>
+
+        <script src="javascript.js"></script>   <!-- vinculem js al HTML -->        
+        
+        <script>
+            (function(d,t) {
+            var BASE_URL="https://app.chatwoot.com";
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=BASE_URL+"/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g,s);
+            g.onload=function(){
+                window.chatwootSDK.run({
+                websiteToken: 'yi1TQMLTEjehTXBvyNuqkbKt',
+                baseUrl: BASE_URL
+                })
+            }
+            })(document,"script");
+        </script>
+      
+        <link rel="stylesheet" href="style.css" />  <!-- vinculem css al HTML -->        
+
+        
+
+    </head>
+
+    <body>
+        <div id="container">
+            
+            <header>
+                <h1 id="title"> Taking Notes in Autopilot</h1>
+            </header>
+
+            <nav id="navGen">
+                <ul>
+                    <li>
+                        <a href="first.html"> 
+                            Inici
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html"> 
+                            App
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="whoAre.html"> 
+                            Qui som
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+
+            <section id="content">
+
+                <article class="article" >
+
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+                <article class="article" >
+                    
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+                <article class="article" >
+                    
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+
+            </section>
+
+            <div class="clearfix"></div>
+
+            <footer>
+                SM Hackaton Project: Autopilot &copy; 2021
+            </footer>
+            
+            
+            
+        </div>
+
+        <script> 
+
+        
+
+        </script> 
+        
+        
+        
+
+        
+        
+
+    </body>
+</html>
