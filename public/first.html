@@ -4,10 +4,27 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>APN</title>
+        <title>Chatbot</title>
 
         <script src="javascript.js"></script>   <!-- vinculem js al HTML -->        
-          
+        
+        <script>
+            (function(d,t) {
+            var BASE_URL="https://app.chatwoot.com";
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=BASE_URL+"/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g,s);
+            g.onload=function(){
+                window.chatwootSDK.run({
+                websiteToken: 'yi1TQMLTEjehTXBvyNuqkbKt',
+                baseUrl: BASE_URL
+                })
+            }
+            })(document,"script");
+        </script>
+      
         <link rel="stylesheet" href="style.css" />  <!-- vinculem css al HTML -->        
 
         
@@ -15,32 +32,59 @@
     </head>
 
     <body>
-        <div class="clearfix"></div>
-        <div id="first">
+        <div id="container">
             
             <header>
                 <h1 id="title"> Taking Notes in Autopilot</h1>
             </header>
 
-            <div class="clearfix"></div>
-
-            <section id="firstContent">
+            <nav id="navGen">
                 <ul>
                     <li>
-                        <p><i>“Los Servicios Web son como el sexo entre los adolescentes. 
-                            Todos hablan de hacerlo, pero aquellos que realmente lo hacen, lo hacen muy mal” </i> - Michelle Bustamante 
-                        </p>
+                        <a href="first.html"> 
+                            Inici
+                        </a>
                     </li>
+
                     <li>
-                        <p><i>“I'm not an amazing programmer. I'm just good enought to fool people into paying me for it” </i> - Jack Forge
-                        </p>
+                        <a href="login.html"> 
+                            App
+                        </a>
                     </li>
+
                     <li>
-                        <button type="submit" onclick="window.location.href='index.html'">Start</button>
-                    </li>                
+                        <a href="whoAre.html"> 
+                            Qui som
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="clearfix"></div>
+
+            <section id="content">
+
+                <article class="article" >
+
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+                <article class="article" >
+                    
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+                <article class="article" >
+                    
+                    <h2> Titulo del articulo</h2>
+                    <p> Texto del articulo</p>
+
+                </article>
+
             </section>
 
-                       
             <div class="clearfix"></div>
 
             <footer>
@@ -50,5 +94,18 @@
             
             
         </div>
+
+        <script> 
+
+        
+
+        </script> 
+        
+        
+        
+
+        
+        
+
     </body>
 </html>
