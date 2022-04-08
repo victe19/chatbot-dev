@@ -15,22 +15,35 @@
     </head>
 
     <body>
+        
         <script>
             (function(d,t) {
-            var BASE_URL="https://app.chatwoot.com";
-            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=BASE_URL+"/packs/js/sdk.js";
-            g.defer = true;
-            g.async = true;
-            s.parentNode.insertBefore(g,s);
-            g.onload=function(){
+              var BASE_URL="https://app.chatwoot.com";
+              var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+              g.src=BASE_URL+"/packs/js/sdk.js";
+              g.defer = true;
+              g.async = true;
+              s.parentNode.insertBefore(g,s);
+              g.onload=function(){
                 window.chatwootSDK.run({
-                websiteToken: 'yi1TQMLTEjehTXBvyNuqkbKt',
-                baseUrl: BASE_URL
+                  websiteToken: 'cS3nrqH3o2Qo2DejWULT9APZ',
+                  baseUrl: BASE_URL
                 })
-            }
+              }
             })(document,"script");
+
+            window.addEventListener('chatwoot:ready', function() {
+                console.log(window.$chatwoot)
+            })
+
+            window.chatwootSettings = {
+                type: 'expanded_bubble',
+                launcherTitle: 'Tens algun dubte?'
+            }
+            window.$chatwoot.setLocale('es');
         </script>
+          
+      
         <div class="clearfix"></div>
         <div id="first">
             
@@ -53,7 +66,7 @@
                         </p>
                     </li>
                     <li>
-                        <button type="submit" onclick="window.location.href='first.html'">Start</button>
+                        <button type="submit" href='first.html'>Start</button>
                     </li>                
             </section>
 
