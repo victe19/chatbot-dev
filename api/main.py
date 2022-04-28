@@ -26,7 +26,6 @@ def login(self):
   url = f"{staging}/auth/sign_in"
   response = requests.request("POST", url, headers=headers, data=payload)
 
-  return response.text
   
   # comprobar el status code
   # if statuscode == 200
@@ -34,6 +33,7 @@ def login(self):
   # else:
   #   raise Exception 
 
+  return response.text
 
 def create_contact(self):
   """
@@ -43,7 +43,7 @@ def create_contact(self):
       _type_: _description_
 
   """ 
-  url = f'https://app.chatwoot.com/api/v1/accounts/{self.account_id}/contacts'
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/contacts'
   
   headers = {
     'Content-Type': 'application/json',
@@ -51,18 +51,19 @@ def create_contact(self):
   }
 
   payload = json.dumps({
-    "inbox_id": self.inbox_id,
-    "name": "carles",
-    "email": "victe21@gmail.com",
-    "phone_number": "+16175551214",
-    "identifier": "3",
+    "inbox_id": 12939,
+    "name": "Daniel",
+    "email": "victe22@gmail.com",
+    "phone_number": "+16175551215",
+    "identifier": "4",
     "custom_attributes": {}
   })
 
   response = requests.request("POST", url, headers=headers, data=payload)
 
   json_response_dict = response.json()
-  self.source_id =str(json_response_dict['payload']['contact_inbox']['source_id'])
+  print(json_response_dict)
+  # self.source_id =str(json_response_dict['payload']['contact_inbox']['source_id'])
 
 
 def create_conversation(self):
@@ -73,7 +74,8 @@ def create_conversation(self):
       _type_: _description_
 
   """  
-  url = f'https://app.chatwoot.com/api/v1/accounts/{self.account_id}/conversations'
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
 
   headers = {
     'Content-Type': 'application/json',
@@ -81,17 +83,17 @@ def create_conversation(self):
   }
 
   payload = json.dumps({
-    "source_id": self.source_id,
-    "inbox_id": self.inbox_id,
+    "source_id": 69496,
+    "inbox_id": 12939,
     "contact_id": 3,
     "additional_attributes": { },
     "status": "open",
-    "assignee_id": "string",
+    "assignee_id": 457,
     "team_id": "string"
   })
 
   response = requests.request("POST", url, headers=headers, data=payload)
-
+  print(response.text)
 
 
 def create_message(self):
@@ -181,12 +183,12 @@ class ConversationAPIBehavior():
 
   def interact_with_conversation_api(self):
     login(self)
-    # self.contact_source_id = create_contact(self)
-    # self.converation_id = create_conversation(self)
+    self.contact_source_id = create_contact(self)
+    self.converation_id = create_conversation(self)
     # self.create_message = create_message(self)
     # self.recive_message = recive_message(self)
     # self.agent_bot_id = create_agent_bot(self)
-    self.create_agent_bot = list_agent_bots(self)
+    # self.create_agent_bot = list_agent_bots(self)
     # self.create_agent_bot = get_agent_bot_details(self)
 
 if __name__ == '__main__':
