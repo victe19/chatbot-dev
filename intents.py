@@ -1,24 +1,5 @@
 from operator import itemgetter
-
-
-def preprocess(query: str) -> list:
-    """
-    First of all the function:
-        1. remove marks 
-        2. remove uppercases
-        3. separate each word to build a list
-
-    Args:
-        query (str): query to preprocess
-
-    Returns:
-        list: list of words splited without puntuation marks
-    """
-
-    query=query.replace(',', '').replace('.', '').lower()
-    word_list = query.split()
-
-    return word_list
+import utils
 
 
 def greeting(query:str) -> float:
@@ -30,7 +11,7 @@ def greeting(query:str) -> float:
     Returns:
         confidence (float): probability that this query belongs to the intent greet
     """    
-    query = preprocess(query)
+    query = utils.query_to_list(query)
     word_list = ["hola", "holaa", "ola", "salutacions"]
 
     if any(word in query for word in word_list):
@@ -52,7 +33,7 @@ def confirm(query:str) -> float:
     Returns:
         confidence (float): probability that this query belongs to the intent confirm
     """    
-    query = preprocess(query)
+    query = utils.query_to_list(query)
     word_list = ["si", "sí", "confirmo", "d'acord", "vale", "ok", "okey"]
 
     if any(word in query for word in word_list):
@@ -74,7 +55,7 @@ def reject(query:str) -> float:
     Returns:
         confidence (float): probability that this query belongs to the intent reject
     """    
-    query = preprocess(query)    
+    query = utils.query_to_list(query)    
     word_list = ['no', 'negatiu', "noo"] 
 
     if any(word in query for word in word_list):
@@ -97,8 +78,8 @@ def info(query:str) -> float:
         confidence (float): probability that this query belongs to the intent info
     """    
 
-    query = preprocess(query)
-    word_list = ["informació", "informacio", "info"]
+    query = utils.query_to_list(query)
+    word_list = ["informació", "informacio", "info", "dubtes", "dubte", "interessat" ]
 
     if any(word in query for word in word_list):
         return 90 
@@ -111,13 +92,17 @@ def info(query:str) -> float:
 
 
 def main_intent(query: str) -> str:
-    
     confidences = []
     intent_list = [greeting, confirm, reject, info]
 
     for intent in intent_list:
         confidence = intent(query)
-        confidences.append([intent.__name__,confidence])    
+        confidences.append([intent.__name__,confidence])
+
+    #TODO: ignore greeting when more intents    
     
     confidences.sort(key=itemgetter(1), reverse=True)
-    return confidences[0]
+    if confidences[0][1] != 0:
+        return confidences[0]
+    else: 
+        return [None] 
