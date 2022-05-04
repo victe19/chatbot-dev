@@ -1,4 +1,4 @@
-import intents
+import src.nlu.intents as intents
 
 
 def test_greeting():
@@ -43,10 +43,10 @@ def test_main_intent():
             ('em dic Victor i si que accepto les condicions.-', ['confirm', 90]),
             ('em dic Victor i no accepto les condicions.-', ['reject', 90]),
             ('em dic Victor i voldria informació sobre els graus.-', ['info', 90]),
-            ('vull conèixer enginyeria química', [None]),          
+            ('vull conèixer enginyeria química', [None, 0]),          
         ]   
 
     for test in test_query:
         query, expected_intent = test
-        confidence = intents.main_intent(query)
+        confidence = intents.intent_extraction(query)
         assert confidence == expected_intent

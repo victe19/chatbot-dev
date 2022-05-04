@@ -57,7 +57,7 @@ def preprocess(query: str) -> str:
         list: list of words splited without puntuation marks
     """
 
-    query=query.replace(',', '').replace('.', '').replace('?', '').lower()
+    query=query.replace(',', '').replace('.', '').replace('?', '').replace('!', '').lower()
     return query
 
 def query_to_list(query:str) -> list:

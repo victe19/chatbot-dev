@@ -1,5 +1,5 @@
 import pytest
-import entities
+import src.nlu.entities as entities
 
 def test_entity_course():
     test_query = [
@@ -69,7 +69,7 @@ def test_entity():
         
 @pytest.mark.skip(reason="no way of currently testing this")
 def test_get_function_name():
-    function_names = entities._get_function_names()
+    function_names = entities.get_module_functions()
     expected_functionnames = [
         '_entity_course', 
         '_entity_degree', 

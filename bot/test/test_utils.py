@@ -1,4 +1,4 @@
-import utils
+import src.utils.utils as utils
 
 def test_json_parser():
     filename =  "data/test.json"

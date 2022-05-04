@@ -2,7 +2,7 @@ import inspect
 import re
 import sys
 
-import utils
+import src.utils.utils as utils
 
 degrees_core_regex = "(?: ?(dades|(?:sistemes|electrònica) de telecomunicació|telecos|informàtica|info |química|gestió aeronàutica))" #done
 degrees_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degrees_core_regex #done
@@ -137,7 +137,7 @@ def _entity(query: str) -> list:
     return entities_found #TODO: sorted list
     
 
-def _get_function_names() -> list:
+def get_module_functions() -> list:
     module_functions = dir(sys.modules[__name__])
     module_core_functions = []
     for function in module_functions:
@@ -148,7 +148,7 @@ def _get_function_names() -> list:
 
 
 def entities_extraction(query: str) -> list:
-    function_list = _get_function_names()
+    function_list = get_module_functions()
     entities_list = _entity(query)
 
     for function in function_list:
