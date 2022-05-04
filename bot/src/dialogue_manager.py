@@ -24,7 +24,7 @@ def next_action(intent: str, entity_list: list, context: Context()) -> list:
     elif intent == 'info' or intent == None:
         if entity_list == []:
             action = 'ask_start'
-            context.status = 'info_more'
+            context.status = f'info_more'
 
         # DEGREE
         elif 'degree' in entity_list and 'course' in entity_list:

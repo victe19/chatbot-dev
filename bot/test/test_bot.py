@@ -10,16 +10,17 @@ def test_message():
 
     assert reply == expected_reply
 
-# def test_message_1():
-#     query = "M'agradaria obtenir informació sobre la guia docent del l'assignatura de TFG"
-#     context = Context()
-#     expected_reply = "Mira, Victor, en aquest enllaç podràs trobar la guia docent que em demanes"
+def test_message_1():
+    query = "Em dic Victor i m'agradaria obtenir informació sobre la guia docent del l'assignatura de TFG"
+    context = Context()
+    expected_reply = "Mira, victor, en aquest enllaç podràs trobar la guia docent que em demanes"
 
-#     reply = bot.message(query, context)
+    reply = bot.message(query, context)
 
-#     assert reply == expected_reply
+    assert reply == expected_reply
 
-# def test_message1():
+
+# def test_message_2():
 #     query = "vull saber informació sobre la carrera universitària"
 #     context = Context()
 #     expected_reply = 'ask_degree'
@@ -29,7 +30,7 @@ def test_message():
 #     assert reply == expected_reply
 
 
-# def test_message2():
+# def test_message_3():
 #     query = "em dic víctor i m'agraderia saber quina és la guía docent del tfg ja que el curso aquest any"
 #     context = Context()
 #     expected_reply = 'tfg_teaching_guide'
@@ -39,7 +40,7 @@ def test_message():
 #     assert reply == expected_reply
 
 
-# def test_message3():
+# def test_message_4():
 #     query = "enginyeria química"
 #     context = Context()
 #     expected_reply = 'ask_course'

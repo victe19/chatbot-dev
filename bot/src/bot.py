@@ -25,12 +25,12 @@ def message(query: str, context: Context())-> list:
     entity_list = entities.entities_extraction(query)
     print(f'List of entity captured is --> {entity_list}')
     action, context = dialogue_manager.next_action(intent, entity_list, context)
-    # print(f'Context until now--> {context}')
+    print(f'Context until now--> {context}')
     print(f'Next action will be --> {action}')
     response = reply.generate(action, context)
     print(f'Bot reply is --> {response}')
     print('Response send!')
     print('--------------------------------------------')
 
-    return reply
+    return response
     
