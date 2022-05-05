@@ -1,7 +1,7 @@
-import src.utils.utils as utils
+import bot.src.utils.utils as utils
 
 def test_json_parser():
-    filename =  "data/test.json"
+    filename =  "bot/data/test.json"
     expected_dict = [
         {
             "name": "Molecule Man",

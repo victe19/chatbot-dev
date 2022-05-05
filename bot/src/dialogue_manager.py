@@ -1,4 +1,4 @@
-from src.context import Context
+from bot.src.context import Context
 
 def next_action(intent: str, entity_list: list, context: Context()) -> list:
     intent = intent[0] #TODO: only take first argument (name), not confidence
@@ -24,10 +24,13 @@ def next_action(intent: str, entity_list: list, context: Context()) -> list:
     elif intent == 'info' or intent == None:
         if entity_list == []:
             action = 'ask_start'
-            context.status = f'info_more'
+            context.status = 'info_more'
 
         # DEGREE
         elif 'degree' in entity_list and 'course' in entity_list:
+            action = 'ask_wich_info'
+
+        elif context.degree != None and context.course != None:
             action = 'ask_wich_info'
 
         elif 'degree' in entity_list:
@@ -52,9 +55,13 @@ def next_action(intent: str, entity_list: list, context: Context()) -> list:
         elif 'username' in entity_list:
             action = 'ask_start'
 
+        elif entity_list == "shedule":
+            action = 'shedule'
+
         elif entity_list == []:
             action = 'ask_start'
             context.status = 'start'
+        
     
     return [action, context]
 

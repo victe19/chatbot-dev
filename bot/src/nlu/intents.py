@@ -1,6 +1,6 @@
 from operator import itemgetter
 import sys
-import src.utils.utils as utils
+import bot.src.utils.utils as utils
 
 
 def greeting(query:str) -> float:

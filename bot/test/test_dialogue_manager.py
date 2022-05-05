@@ -1,6 +1,6 @@
 import pytest
-import src.dialogue_manager as dialogue_manager
-from src.context import Context
+import bot.src.dialogue_manager as dialogue_manager
+from bot.src.context import Context
 
 @pytest.mark.skip(reason="no correct testing this")
 def test_next_action_start():

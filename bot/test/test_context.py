@@ -1,4 +1,4 @@
-from src.context import Context
+from bot.src.context import Context
 
 def test_setup_context():
     entity_list = [["course", "1"]]

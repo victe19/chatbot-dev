@@ -18,7 +18,7 @@ class Context:
     schedule: bool = None
     teaching_guide: bool = None
     tfg: bool = None
-    username: str = None
+    username: str = ""
     status: str = "start"
 
 

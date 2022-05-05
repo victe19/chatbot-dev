@@ -1,5 +1,5 @@
 import pytest
-import src.nlu.entities as entities
+import bot.src.nlu.entities as entities
 
 def test_entity_course():
     test_query = [

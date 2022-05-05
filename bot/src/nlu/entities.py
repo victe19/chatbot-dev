@@ -2,7 +2,7 @@ import inspect
 import re
 import sys
 
-import src.utils.utils as utils
+import bot.src.utils.utils as utils
 
 degrees_core_regex = "(?: ?(dades|(?:sistemes|electrònica) de telecomunicació|telecos|informàtica|info |química|gestió aeronàutica))" #done
 degrees_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degrees_core_regex #done
@@ -13,7 +13,7 @@ mencions_regex = "(menció)( en | de )? (computació|enginyeria del? (software|c
 professors_regex = ""
 semester_regex = "((primer|1er|1)|(segon|2n|2))(semestre|quatrimestre|període)" 
 year_regex = "(any )?(\\d{2,4})( any)?"
-username_regex = "(?:(?:soc|sóc)(?: el )?|el meu nom (?:és |es )|em dic )([^,.\s]*)"
+username_regex = "(?:(?:soc|sóc)(?: el )?|el meu nom (?:és |es )|em dic )([^,.\\s]*)"
 
 entities_dict = {
     'academic': ['expedient acadèmic', 'expedient'],

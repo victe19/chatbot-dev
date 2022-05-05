@@ -1,7 +1,9 @@
 from colorama import Fore, Style
 
-import bot
+import bot.src.flowbot as bot
 from context import Context
+
+
 
 context = Context()
 

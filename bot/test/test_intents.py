@@ -1,4 +1,4 @@
-import src.nlu.intents as intents
+import bot.src.nlu.intents as intents
 
 
 def test_greeting():
