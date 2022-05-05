@@ -36,6 +36,30 @@ def test_entity_degree():
 
         assert entity == expected_entity
 
+
+def test_entity_mention():
+    test_query = [
+        ("menció en computació", ["mention", "computació"]),
+        ("menció en enginyeria del software i quines assignatures té", ["mention", "software"]),
+        ("a l'escola és cursa la menció en enginyeria de computadors", ["mention", "computadors"]),
+        ("menció en tecnologies de la informació", ["mention", "informació"]),
+        ("menció en enginyeria del software i quines assignatures té", ["mention", "software"]),
+        ("a l'escola és cursa la menció en enginyeria de computadors", ["mention", "computadors"]),
+        ("menció en tecnologies de la informació", ["mention", "informació"]),
+        # ("teconologies de la informació", ["mention", "informació"]),
+        # ("computació", ["mention", "computació"]),
+        # ("software", ["mention", "software"]),
+        ("menció de computació", ['mention', 'computació']),
+        ("menció en inteligència artificial", None),
+        ("menció en", None),
+    ]
+
+    for test in test_query:
+        query, expected_entity = test
+        entity = entities._entity_mention(query)
+
+        assert entity == expected_entity
+
 def test_entity_username():
     test_query = [
         ("hola el meu nom es àlex", ["username", "àlex"]),

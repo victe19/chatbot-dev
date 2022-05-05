@@ -8,6 +8,7 @@ def test_message_1():
     reply = bot.message(query, context)
 
     assert reply == expected_reply
+    
 
 def test_message_2():
     query = "Em dic Victor i m'agradaria obtenir informació sobre la guia docent del l'assignatura de TFG"

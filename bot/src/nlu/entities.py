@@ -9,21 +9,27 @@ degrees_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?"
 
 course_regex = "((?:primer|segon|tercer|quart)|[1-4](?:r|n|t)?)(?: curs| any)?" #done
 departaments_regex = "(departament)( de |d')?(ciències de la computació|enginyeria electrònica|arquitectura)"
-mencions_regex = "(menció)( en | de )? (computació|enginyeria del? (software|computadors)|tecnologies de la informació)"
+subjects_regex = "(?:(?:assignatura |materia )(?:de |d')?((?:[^,.\\s]*)(?:(?: de | dels? | i | d'| |, )(?:[^,.\\s]*))?))" #50%
+mentions_regex = "(?:(?:menció)(?: en | de )?(?:enginyeria del? |tecnologies de la )?(computació|software|computadors|informació))" #done
 professors_regex = ""
 semester_regex = "((primer|1er|1)|(segon|2n|2))(semestre|quatrimestre|període)" 
-year_regex = "(any )?(\\d{2,4})( any)?"
-username_regex = "(?:(?:soc|sóc)(?: el )?|el meu nom (?:és |es )|em dic )([^,.\\s]*)"
+year_regex = "(?:(?:any )?(\\d{2,4}|que bé|següent)(?: any)?)" #done
+username_regex = "(?:(?:soc|sóc)(?: el )?|el meu nom (?:és |es )|em dic )([^,.\\s]*)" #done
 
 entities_dict = {
     'academic': ['expedient acadèmic', 'expedient'],
     'exams': ['exàmens', 'proves', 'parcials', 'finals', 'exàmen'],
-    'exchange': ['estudiar fora', 'erasmus', 'exchange', 'sicue', 'destinacions'],
-    'internship': ['pràctiques', 'pràcticum', 'internship'],
+    'exchange': ['estudiar fora', 'erasmus', 'exchange', 'sicue', 'destinacions', 'mobilitat', 'programa mobilitat'],
+    'internship': ['pràctiques', 'pràcticum', 'internship', 'estades', 'empresa', 'empreses'],
     'registration': ['matrícula', 'matricular-me', 'matrícules', 'matriculació'],
     'schedule': ['horari', 'horaris', 'hores', 'franjes'],
+    'calendar': ['data', 'dates', 'dia', 'dies', 'setmana', 'setmanes'],
     'teaching_guide': ['guia docent', 'guia', 'docent', 'franjes'],
+    'permanence': ['règim de permanència', 'permanència'],
+    'procedures': ['tràmit', 'tràmits', 'gestió acadèmica',],
+    'credit_recognition': ['reconeixament de crèdits'],
     'tfg': ['final de grau', 'tfg', 'treball final'],
+
     }
 
 def _entity_course(query: str) -> str:
@@ -51,39 +57,39 @@ def _entity_degree(query: str) -> str:
     return None
 
 
-# def _entity_department(query: str) -> str:
+def _entity_mention(query: str) -> str:
+    function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
+    m = re.search(mentions_regex, query)
+
+    if m:
+        query = query.replace(m.group(0), "")
+        if m.group(1):
+            mention = m.group(1)
+        return [function_name, mention]
+    return None
+
+
+def _entity_subject(query: str) -> str:
+    function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
+    m = re.search(subjects_regex, query)
+
+    if m:
+        query = query.replace(m.group(0), "")
+        if m.group(1):
+            subject = m.group(1)
+        return [function_name, subject]
+    return None
+
+
+# def _entity_year(query: str) -> str:
 #     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(course_regex, query)
+#     m = re.search(year_regex, query)
 
 #     if m:
 #         query = query.replace(m.group(0), "")
 #         if m.group(1):
-#             department = m.group(1)
-#         return [function_name, department]
-#     return None
-
-
-# def _entity_mencion(query: str) -> str:
-#     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(degrees_regex, query)
-
-#     if m:
-#         query = query.replace(m.group(0), "")
-#         if m.group(1):
-#             mention = m.group(1)
-#         return [function_name, mention]
-#     return None
-
-
-# def _entity_semester(query: str) -> str:
-#     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(degrees_regex, query)
-
-#     if m:
-#         query = query.replace(m.group(0), "")
-#         if m.group(1):
-#             semester = m.group(1)
-#         return [function_name, semester]
+#             year = m.group(1)
+#         return [function_name, year]
 #     return None
 
 
@@ -111,17 +117,17 @@ def _entity_username(query: str) -> str:
     return None
 
 
-# def _entity_year(query: str) -> str:
-#     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
+def _entity_year(query: str) -> str:
+    function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
 
-#     m = re.search(degrees_regex, query)
+    m = re.search(degrees_regex, query)
 
-#     if m:
-#         query = query.replace(m.group(0), "")
-#         if m.group(1):
-#             year = m.group(1)
-#         return [function_name, year]
-#     return None
+    if m:
+        query = query.replace(m.group(0), "")
+        if m.group(1):
+            year = m.group(1)
+        return [function_name, year]
+    return None
 
 
 def _entity(query: str) -> list:

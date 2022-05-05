@@ -1,15 +1,12 @@
 import requests
 import json
 
+headers = {
+    'Content-Type': 'application/json',
+    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
+  }
 
-def login(self):
-  """
-  Login to chatwoot a new Contact
-
-  Returns:
-      _type_: _description_
-
-  """ 
+def login():
 
   staging = 'http://app.chatwoot.com'
 
@@ -17,11 +14,7 @@ def login(self):
     "email": "victe19@gmail.com",
     "password": "Chatwoot@original19"
   })
-
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
+  
 
   url = f"{staging}/auth/sign_in"
   response = requests.request("POST", url, headers=headers, data=payload)
@@ -35,20 +28,10 @@ def login(self):
 
   return response.text
 
-def create_contact(self):
-  """
-  Create a new Contact
 
-  Returns:
-      _type_: _description_
+def create_contact():
 
-  """ 
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/contacts'
-  
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
 
   payload = json.dumps({
     "inbox_id": 12939,
@@ -67,20 +50,8 @@ def create_contact(self):
 
 
 def create_conversation(self):
-  """
-  Create a new conversation
-  
-  Returns:
-      _type_: _description_
-
-  """  
 
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
-
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
 
   payload = json.dumps({
     "source_id": 69496,
@@ -96,35 +67,9 @@ def create_conversation(self):
   print(response.text)
 
 
-def create_message(self):
-  """
-  Create a new message
-
-  Returns:
-      _type_: _description_
-
-  """ 
-  pass
-
-
-# 4. RECIVE A MESSAGE 
-def recive_message(self):
-
-  pass
-
-
-# 5. CREATE AGENT BOT
 def create_agent_bot(self):
-  """
-  Create an agent bot in the account
 
-  """
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/agent_bots'
-
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
 
   payload = json.dumps({
     "name": "victe",
@@ -136,7 +81,7 @@ def create_agent_bot(self):
   print(response.text)
 
 
-# 6. LISTS AGENT BOTS
+
 def list_agent_bots(self):
   """
   Create an agent bot in the account
@@ -144,32 +89,51 @@ def list_agent_bots(self):
   """
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/agent_bots'
 
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
-
   response = requests.request("GET", url, headers=headers)
   print(response.text)
 
 
-# 7. LISTS AGENT BOTS
 def get_agent_bot_details(self):
-  """
-  Create an agent bot in the account
 
-  """
   url = f'https://app.chatwoot.com/platform/api/v1/agent_bots/457'
 
-  headers = {
-    'Content-Type': 'application/json',
-    'api_access_token': 'nqmQPhPMojx6VU2XTfUEHVHC'
-  }
-
   response = requests.request("GET", url, headers=headers)
   print(response.text)
 
 
+def get_list_all_inboxes(self):
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/inboxes'
+
+  response = requests.request("GET", url, headers=headers)
+  # print(response.text)
+
+
+def get_messages_from_conversation():
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/11/messages'
+
+  messages = requests.request("GET", url, headers=headers)
+  message = messages.text
+  message = json.loads(message)
+  message_list = message["payload"]
+  last_message_json = message_list[-1]
+  if last_message_json['message_type'] == 0:
+      return last_message_json['content']
+
+
+def post_messages_to_conversation(message: str):
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/11/messages'
+
+  payload = json.dumps({ 
+    "content": message, 
+    "message_type": "outgoing", 
+    "content_attributes": { }
+  })  
+
+  response = requests.request("POST", url, headers=headers, data=payload)
+  print(f"Response Server: {response.status_code}")
 
 class ConversationAPIBehavior():
 
@@ -183,13 +147,16 @@ class ConversationAPIBehavior():
 
   def interact_with_conversation_api(self):
     login(self)
-    self.contact_source_id = create_contact(self)
-    self.converation_id = create_conversation(self)
+    get_list_all_inboxes(self)
+    message = get_messages_from_conversation()
+    # self.contact_source_id = create_contact(self)
+    # self.converation_id = create_conversation(self)
     # self.create_message = create_message(self)
     # self.recive_message = recive_message(self)
     # self.agent_bot_id = create_agent_bot(self)
     # self.create_agent_bot = list_agent_bots(self)
     # self.create_agent_bot = get_agent_bot_details(self)
+    return message
 
 if __name__ == '__main__':
   ConversationAPIBehavior().on_start()

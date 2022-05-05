@@ -37,7 +37,7 @@
     },    
     "im_bot": {
         "id": 1.1,
-        "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç"]
+        "answers": ["Ho has encertat {}! Em dic G.A.V.I.À i sóc un assistent virtual. Intentaré ajudar-te en tot el que pugui."]
     },    
     "need_operator": {
         "id": 1.1,
