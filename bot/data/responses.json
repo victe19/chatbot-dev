@@ -1,0 +1,62 @@
+{
+    "hello": {
+        "id": 1.1,
+        "answers": ["Hola {}, encantat de saludar-te. Sóc en G.A.V.I.À el teu assistent virtual"]
+    },
+    "ask_name": {
+        "id": 1.1,
+        "answers": ["Hola, encantat de saludar-te. Primer de tot, com em puc dirigir a tu?"]
+    },    
+    "ask_start": {
+        "id": 1.1,
+        "answers": ["Encantat {}, em podries indicar en què et puc ajudar?"]
+    },
+    "ask_degree": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar sobre quin grau/carrera t'agraderia saber-ne més?"]
+    },    
+    "ask_course": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar de quin curs?"]
+    },    
+    "ask_info": {
+        "id": 1.1,
+        "answers": ["D'acord {}, de què t'agraderia tenir més informació?"]
+    },    
+    "tfg": {
+        "id": 1.1,
+        "answers": ["Si, {} El TFG és un treball que recopila tots els coneixaments englobats dins el teu grau"]
+    },
+    "tfg_teaching_guide": {
+        "id": 1.1,
+        "answers": ["Mira {}, en aquest enllaç podràs trobar la guia docent que em demanes"]
+    },    
+    "academic": {
+        "id": 1.1,
+        "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç"]
+    },    
+    "im_bot": {
+        "id": 1.1,
+        "answers": ["Ho has encertat {}! Em dic G.A.V.I.À i sóc un assistent virtual. Intentaré ajudar-te en tot el que pugui."]
+    },    
+    "need_operator": {
+        "id": 1.1,
+        "answers": ["Si necessites posar-te en contacte amb una persona de l'escola, {}, pots trucar al telèfon següent o escriure al correu@enginyeria.cat"]
+    },
+    "exams": {
+        "id": 1.1,
+        "answers": ["Si necessites posar-te en contacte amb una persona de l'escola, {}, pots trucar al telèfon següent o escriure al correu@enginyeria.cat"]
+    },    
+    "exchange": {
+        "id": 1.1,
+        "answers": ["Si necessites posar-te en contacte amb una persona de l'escola, {}, pots trucar al telèfon següent o escriure al correu@enginyeria.cat"]
+    },
+    "shedule": {
+        "id": 1.1,
+        "answers": ["Els horaris estan al seguent pdf, {}"]
+    },
+    "no_understand": {
+        "id": 1.1,
+        "answers": ["Ho sento {}, no t'he entès. Podríes repetir?"]
+    }  
+}

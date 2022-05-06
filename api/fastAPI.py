@@ -1,7 +1,7 @@
 from http.client import HTTP_VERSION_NOT_SUPPORTED
 from fastapi import FastAPI, Depends, status, Response, HTTPException
 from . import schemas, models
-from .database import engine, SessionLocal
+from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 
