@@ -1,6 +1,6 @@
 from bot.src.context import Context
 
-def next_action(intent: str, entity_list: list, context: Context()) -> list:
+def next_action(intent: str, entity_list: list, context: Context) -> list:
     intent = intent[0] #TODO: only take first argument (name), not confidence
     entity_list = setup_entities(entity_list, context)
     action = None
@@ -56,7 +56,16 @@ def next_action(intent: str, entity_list: list, context: Context()) -> list:
             action = 'ask_start'
 
         elif entity_list == "shedule":
-            action = 'shedule'
+            if context.degree != None and context.course != None and context.semester != None:
+                if context.course == "3" and context.mention != None:  
+                    action = "ask_mention"
+                action = context.degree + "_" + context.course + "_" + context.semester + "_" + context.mention + "_shedule"
+            elif context.degree != None:
+                action = "ask_degree"
+            elif context.course != None:
+                action = "ask_course"      
+            elif context.semester != None:
+                action = "ask_semester"     
 
         elif entity_list == []:
             action = 'ask_start'
