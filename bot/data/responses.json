@@ -18,7 +18,15 @@
     "ask_course": {
         "id": 1.1,
         "answers": ["D'acord {}, em podries indicar de quin curs?"]
-    },    
+    },   
+    "ask_semester": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar quin semestre?"]
+    }, 
+    "ask_mention": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar de quina menció?"]
+    },  
     "ask_info": {
         "id": 1.1,
         "answers": ["D'acord {}, de què t'agraderia tenir més informació?"]
@@ -30,7 +38,7 @@
     "tfg_teaching_guide": {
         "id": 1.1,
         "answers": ["Mira {}, en aquest enllaç podràs trobar la guia docent que em demanes"]
-    },    
+    }, 
     "academic": {
         "id": 1.1,
         "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç"]

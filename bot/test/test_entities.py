@@ -76,6 +76,25 @@ def test_entity_username():
         assert entity == expected_entity
 
 
+def test_entity_year():
+    test_query = [
+        ("començo les pràctiques l'any que ve", ["year", "2023"]),
+        ("l'any que ve vull fer química", ["year", "2023"]),
+        ("l'any següent m'agraderia fer un master", ["year", "2023"]),
+        ("començo les pràctiques l'any que ve", ["year", "2023"]),
+        # ("l'any 22 ve vull fer química", ["year", "2022"]),
+        ("l'any 2022 m'agraderia fer un master", ["year", "2022"]),
+        ("m'agraderia anar a Mallorca aquest any  i tal", ["year", "2022"]),
+        # ("vull un any mes de contracte", ["year", ""]),
+    ]
+
+    for test in test_query:
+        query, expected_entity = test
+        entity = entities._entity_year(query)
+
+        assert entity == expected_entity
+
+
 def test_entity():
     test_query = [
         ("voldria informació sobre els horaris de primer any del grau d'enginyeria informàtica", [["schedule", True]]),
@@ -110,7 +129,7 @@ def test_get_function_name():
 
 def test_entities_extraction():
     test_query = [
-        ("voldria informació sobre els horaris de primer any del grau d'enginyeria informàtica", [["schedule", True], ["course", "1"], ["degree", "informàtica"]]),
+        ("voldria informació sobre els horaris de primer del grau d'enginyeria informàtica", [["schedule", True], ["course", "1"], ["degree", "informàtica"]]),
         ("voldria informació sobre els horaris de segon", [["schedule", True], ["course", "2"]]),
         ("voldria informació sobre el tfg d'enginyeria química", [["tfg", True], ["degree", "química"]]),
         ("hola em dic víctor i voldria informació", [["username", "víctor"]])

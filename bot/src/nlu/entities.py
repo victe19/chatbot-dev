@@ -1,19 +1,21 @@
 import inspect
 import re
 import sys
+from datetime import date
+import this
 
 import bot.src.utils.utils as utils
 
-degrees_core_regex = "(?: ?(dades|(?:sistemes|electrònica) de telecomunicació|telecos|informàtica|info |química|gestió aeronàutica))" #done
-degrees_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degrees_core_regex #done
+degree_core_regex = "(?: ?(dades|(?:sistemes|electrònica) de telecomunicació|telecos|informàtica|info |química|gestió aeronàutica))" #done
+degree_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degree_core_regex #done
 
 course_regex = "((?:primer|segon|tercer|quart)|[1-4](?:r|n|t)?)(?: curs| any)?" #done
 departaments_regex = "(departament)( de |d')?(ciències de la computació|enginyeria electrònica|arquitectura)"
-subjects_regex = "(?:(?:assignatura |materia )(?:de |d')?((?:[^,.\\s]*)(?:(?: de | dels? | i | d'| |, )(?:[^,.\\s]*))?))" #50%
-mentions_regex = "(?:(?:menció)(?: en | de )?(?:enginyeria del? |tecnologies de la )?(computació|software|computadors|informació))" #done
-professors_regex = ""
+subject_regex = "(?:(?:assignatura |materia )(?:de |d')?((?:[^,.\\s]*)(?:(?: de | dels? | i | d'| |, )(?:[^,.\\s]*))?))" #50%
+mention_regex = "(?:(?:menció)(?: en | de )?(?:enginyeria del? |tecnologies de la )?(computació|software|computadors|informació))" #done
+professor_regex = ""
 semester_regex = "((primer|1er|1)|(segon|2n|2))(semestre|quatrimestre|període)" 
-year_regex = "(?:(?:any )?(\\d{2,4}|que bé|següent)(?: any)?)" #done
+year_regex = "(?:(aquest )?(?:any )(\\d{2,4})?(que ve|següent)?(?: any)?)" #done
 username_regex = "(?:(?:soc|sóc)(?: el )?|el meu nom (?:és |es )|em dic )([^,.\\s]*)" #done
 
 entities_dict = {
@@ -47,7 +49,7 @@ def _entity_course(query: str) -> str:
 
 def _entity_degree(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-    m = re.search(degrees_regex, query)
+    m = re.search(degree_regex, query)
 
     if m:
         query = query.replace(m.group(0), "")
@@ -59,7 +61,7 @@ def _entity_degree(query: str) -> str:
 
 def _entity_mention(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-    m = re.search(mentions_regex, query)
+    m = re.search(mention_regex, query)
 
     if m:
         query = query.replace(m.group(0), "")
@@ -71,7 +73,7 @@ def _entity_mention(query: str) -> str:
 
 def _entity_subject(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-    m = re.search(subjects_regex, query)
+    m = re.search(subject_regex, query)
 
     if m:
         query = query.replace(m.group(0), "")
@@ -95,7 +97,7 @@ def _entity_subject(query: str) -> str:
 
 # def _entity_professor(query: str) -> str:
 #     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(degrees_regex, query)
+#     m = re.search(degree_regex, query)
 
 #     if m:
 #         query = query.replace(m.group(0), "")
@@ -120,13 +122,22 @@ def _entity_username(query: str) -> str:
 def _entity_year(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
 
-    m = re.search(degrees_regex, query)
+    m = re.search(year_regex, query)
+    this_year = date.today().year
+    year = "" 
 
     if m:
         query = query.replace(m.group(0), "")
-        if m.group(1):
-            year = m.group(1)
-        return [function_name, year]
+        if m.group(2):
+            year = m.group(2) if len(year) == 4 else "20" + str(m.group(2))
+ 
+        elif m.group(3):
+            year = this_year + 1
+
+        elif m.group(1):
+            year = this_year
+
+        return [function_name, str(year)]
     return None
 
 
