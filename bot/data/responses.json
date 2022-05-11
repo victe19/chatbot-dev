@@ -30,7 +30,23 @@
     "ask_info": {
         "id": 1.1,
         "answers": ["D'acord {}, de què t'agraderia tenir més informació?"]
-    },    
+    },  
+    "informatica_1_1_shedule": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'horar que em demanes. https://www.uab.cat/doc/Horari_GEI_Curs1_Sem1 "]
+    },
+    "informatica_1_2_shedule": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'horar que em demanes. https://www.uab.cat/doc/Horari_GEI_Curs1_Sem2"]
+    },  
+    "informatica_2_1_shedule": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'horar que em demanes. https://www.uab.cat/doc/Horari_GEI_Curs2_Sem1"]
+    },
+    "informatica_2_2_shedule": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'horar que em demanes. https://www.uab.cat/doc/Horari_GEI_Curs2_Sem2"]
+    },        
     "tfg": {
         "id": 1.1,
         "answers": ["Si, {} El TFG és un treball que recopila tots els coneixaments englobats dins el teu grau"]
