@@ -59,7 +59,7 @@ def next_action(intent: str, entity_list: list, context: Context) -> list:
             if context.degree != None and context.course != None and context.semester != None:
                 if context.course == "3" and context.mention != None:  
                     action = "ask_mention"
-                action = context.degree + "_" + context.course + "_" + context.semester + "_shedule"
+                action = "shedule"
             elif context.degree != None:
                 action = "ask_degree"
             elif context.course != None:
