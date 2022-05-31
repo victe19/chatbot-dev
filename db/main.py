@@ -1,3 +1,4 @@
+import json
 from asyncio.log import logger
 import collections
 import firebase_admin
@@ -44,10 +45,33 @@ docs = db.collection('cities').where("name", "==", "Barcelona" ).get() # array_c
 for doc in docs:
     print(doc.to_dict())
 
-def get_from_db(colection   : str, row) -> dict:
+def get_from_db(colection: str, row) -> dict:
     
     data_dict = db.collection(colection).document(row).get()
     if data_dict.exists:
         return data_dict.to_dict()
     else: 
         logger.error(f"Information not found in db")
+
+
+db.collection('people').add({'name':'Blai', 'age':42})
+
+# Add data
+data = {
+    u'name': u'Los Angeles',
+    u'state': u'CA',
+    u'country': u'USA'
+}
+
+# Add a new doc in collection 'cities' with ID 'LA'
+db.collection(u'cities').document(u'LA').set(data)
+
+
+def post_to_db(filename: str, collection_name: str, document_name: str):
+
+    with open(filename) as json_file:
+        data = json.load(json_file)
+    
+    db.collection(collection_name).document(document_name).set(data)
+
+    

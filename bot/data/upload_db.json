@@ -1,0 +1,389 @@
+{
+    "information": {
+        "admission_mark": "9'537",
+        "career_opportunities": "Són uns dels estudis que tenen més demanda en el mercat laboral. L'atur d'aquests graduats és inexistent i l'oferta de treball creix cada dia, fet que permet disposar d'un ampli ventall d'oportunitats en molts sectors i tecnologies:  programador d'aplicacions, desenvolupador web, administrador de bases de dades, analista de sistemes informàtics, arquitecte del programari, consultor informàtic, director de projectes d'instal·lacions informàtiques,  desenvolupador d'aplicacions mòbils, community manager, administrador de xarxes i sistemes, especialista SEM/SEO, enginyer del coneixement, analista funcional, arquitecte d'informació, responsable de seguretat en sistemes d'informació, dissenyador de videojocs, administrador de webs... I moltes altres professions que encara no existeixen i que, per tant, encara no tenen nom, i per a les que el graduat també estarà preparat, ja que gaudirà d'una formació global que facilita l'adaptació als canvis i a les innovacions tecnològiques.",
+        "duration": "4 courses - 240 credits",
+        "languages": "Catalan (70%), Spanish (25%) and, in some optional subjects, English (5%)",
+        "learning_mode": "Presencial",
+        "location": "Campus Bellaterra",
+        "presentation": "Actualment, els professionals de la informàtica són una peça clau en tots els àmbits de la societat digital del segle XXI, tant en la transformació digital de les empreses com en els reptes socials",
+        "price": "27.67 Euros",
+        "school": "Escola d'Enginyeria"
+    },
+
+    "admission": {
+        "coordinator": "Jordi Pons Aróztegui",
+        "mentoring_ES": "Xavier Otazu Porter",
+        "mentoring_TIC": "Sergi Robles Martínez",
+        "mentoring_Comp": "Ramon Baldrich i Caselles",
+        "mentoring_EC": "Juan Carlos Moure"
+    },
+
+    "teaching_staff": {
+        "secundary_PAU": "9'537",
+        "over_25": "5.000",
+        "other": "5.000"
+    },
+
+    "exams": {
+        "1": {
+            "parcials": "https://www.uab.cat/doc/Examens_parcials_GEI_1r_semestre",
+            "finals": "https://www.uab.cat/doc/Examens_GEI_1r_semestre"
+        },
+        "2": {
+            "parcials": "https://www.uab.cat/doc/Examens_GEI_2sem_parcials",
+            "finals": "https://www.uab.cat/doc/Examens_GEI_2sem_finals"
+        } 
+    },
+
+    "schedule": {
+        "1r": {
+            "1": "https://www.uab.cat/doc/Horari_GEI_Curs1_Sem1",
+            "2": "https://www.uab.cat/doc/Horari_GEI_Curs1_Sem2"
+        },
+        "2n": {
+            "1": "https://www.uab.cat/doc/Horari_GEI_Curs2_Sem1",
+            "2": "https://www.uab.cat/doc/Horari_GEI_Curs2_Sem2"
+        },
+        "3r": {
+            "1": "https://www.uab.cat/doc/Horari_GEI_Curs3_Sem1",
+            "2": "https://www.uab.cat/doc/Horari_GEI_Curs3_Sem2"
+        },
+        "4t": {
+            "1": "https://www.uab.cat/doc/Horari_GEI_Curs4_Sem1",
+            "2": "https://www.uab.cat/doc/Horari_GEI_Curs4_Sem2"
+        },
+        "lab": {
+            "1": "https://www.uab.cat/doc/Horari_GEI_Curs1_Sem1",
+            "2": "https://www.uab.cat/doc/Horari_GEI_Curs1_Sem2"
+        }       
+    },
+
+    "subjects": {
+        "1r": {
+            "1r": {
+                "Àlgebra": {
+                    "code": "103801",
+                    "teaching_guide": "" ,
+                    "professors": []
+                },
+                "Càlcul": {
+                    "code": "103802",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Electricitat i Electrònica": {
+                    "code": "102771",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Fonaments dels Computadors": {
+                    "code": "102765",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Fonaments d'Informàtica": {
+                    "code": "103806",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Matemàtica Discreta": {
+                    "code": "102772",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Metodologia de la Programació": {
+                    "code": "102764",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Organització i Gestió d'Empreses": {
+                    "code": "103807",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Fonaments d'Enginyeria": {
+                    "code": "103805",
+                    "teaching_guide": "",
+                    "professors": []
+                }
+            },
+            "2n": {
+                "Estadística": {
+                    "code": "103803",
+                    "teaching_guide": "" ,
+                    "professors": []
+                },
+                "Arquitectura de computadors": {
+                    "code": "102775",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Bases de Dades": {
+                    "code": "102744",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Enginyeria del Software": {
+                    "code": "102743",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Estructura de Computadors": {
+                    "code": "102774",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Informació i Seguretat": {
+                    "code": "102769",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Intel·ligència Artificial": {
+                    "code": "102768",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Laboratori de Programació": {
+                    "code": "102767",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Sistemes Operatius": {
+                    "code": "102747",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Xarxes": {
+                    "code": "102746",
+                    "teaching_guide": "",
+                    "professors": []
+                }
+            },
+            "3r": {
+                "ES": {
+                    "Disseny de Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Requisits del Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Gestió i Administració de Bases de Dades": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Test i Qualitat del Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Gestió del Desenvolupament del Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Models de Qualitat en la Gestió de les TIC": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Arquitectura i Tecnologies de Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Laboratori Integrat de Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    }
+                },
+                "Compu": {
+                    "Anàlisi i Disseny d'Algorismes": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Coneixement, Raonament i Incertesa": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Aprenentatge Computacional": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Visualització Gràfica Interactiva": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Compiladors": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Visió per Computador": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Robòtica, Llenguatge i Planificació": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Sistemes Multimèdia": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    }
+                },
+                "TIC": {
+                    "Fonaments de Tecnologia de la Informació": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Sistemes d'Informació": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Sistemes Distribuïts": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Disseny del Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Infraestructura i Tecnologia de Xarxes": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Tecnologies Avançades d'Internet": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Sistemes i Tecnologies Web": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Garantia de la Informació i Seguretat": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    }
+                },
+                "EC": {
+                    "Sistemes Distribuïts": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Sistemes Encastats": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Gestió i Administració de Xarxes": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Arquitectures Avançades": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Microprocessadors i Perifèrics": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Computació d'Altes Prestacions": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Integració Hardware / Software": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    },
+                    "Prototipatge de Sistemes Encastats": {
+                        "code": "103803",
+                        "teaching_guide": "" ,
+                        "professors": []
+                    }
+                }
+            },
+            "4t": {
+                "Gestió de projectes": {
+                    "code": "103801",
+                    "teaching_guide": "" ,
+                    "professors": []
+                },
+                "Treball Final de Grau": {
+                    "code": "103802",
+                    "teaching_guide": "",
+                    "professors": []
+                }
+            },
+            "Optatives": {
+                "Pràctiques Externes": {
+                    "code": "102771",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Anglès Professional I": {
+                    "code": "102765",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Anglès Professional II": {
+                    "code": "103806",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Tendències Actuals": {
+                    "code": "102772",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Aplicacions de la Teoria de Codis": {
+                    "code": "102764",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Internet de les Coses": {
+                    "code": "103807",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Tecnologia Blockchain i Criptomonedes": {
+                    "code": "103805",
+                    "teaching_guide": "",
+                    "professors": []
+                },
+                "Tecnologies de Compressió de la Informació": {
+                    "code": "103805",
+                    "teaching_guide": "",
+                    "professors": []
+                }
+            }   
+        }
+    }
+}

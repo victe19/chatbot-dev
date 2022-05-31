@@ -2,8 +2,6 @@ import inspect
 import re
 import sys
 from datetime import date
-import this
-
 import bot.src.utils.utils as utils
 
 degree_core_regex = "(?: ?(dades|(?:sistemes|electrònica) de telecomunicació|telecos|informàtica|info |química|gestió aeronàutica))" #done

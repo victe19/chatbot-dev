@@ -1,10 +1,18 @@
 from bot.src.context import Context
 
+def setup_entities(entity_list: list, context: Context()) -> list:
+        Context.setup_context(context, entity_list)
+        entity_name_list =  []
+        for entity in entity_list:
+            entity_name_list.append(entity[0])
+        
+        return entity_name_list
+
+
 def next_action(intent: str, entity_list: list, context: Context) -> list:
     intent = intent[0] #TODO: only take first argument (name), not confidence
     entity_list = setup_entities(entity_list, context)
-    action = None
-
+    action = 'no_understand'
 
     if intent == 'greeting':
         if entity_list == [] and context.username != None:
@@ -55,30 +63,24 @@ def next_action(intent: str, entity_list: list, context: Context) -> list:
         elif 'username' in entity_list:
             action = 'ask_start'
 
-        elif entity_list == "shedule":
+        #SCHEDULE
+        elif entity_list == "schedule" or context.schedule != None:
             if context.degree != None and context.course != None and context.semester != None:
                 if context.course == "3" and context.mention != None:  
                     action = "ask_mention"
-                action = "shedule"
+                action = "schedule"
             elif context.degree != None:
                 action = "ask_degree"
             elif context.course != None:
                 action = "ask_course"      
             elif context.semester != None:
-                action = "ask_semester"     
+                action = "ask_semester" 
+                    
 
         elif entity_list == []:
             action = 'ask_start'
-            context.status = 'start'
-        
-    
+            context.status = 'start'     
+
     return [action, context]
 
 
-def setup_entities(entity_list: list, context: Context()) -> list:
-        Context.setup_context(context, entity_list)
-        entity_name_list =  []
-        for entity in entity_list:
-            entity_name_list.append(entity[0])
-        
-        return entity_name_list
