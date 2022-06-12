@@ -1,15 +1,12 @@
-from colorama import Fore
-
-import bot.src.flowbot as bot
-from context import Context
-
 import os
 
+import bot.src.flowbot as bot
+from colorama import Fore
+
+from context import Context
 
 # Get environment variables
 PYTHONPATH = os.getenv('PYTHONPATH')
-
-
 
 context = Context()
 

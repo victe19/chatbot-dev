@@ -3,29 +3,34 @@ import json
 
 def words_to_nums(query: str) -> str:
     replacements = [
-        ('primer', 1),
-        ('segon', 2),
-        ('tercer', 3),
-        ('quart', 4),
-        ('cinquè', 5),
-        ('sisè', 6),
-        ('setè', 7),
-        ('vuitè', 8),
-        ('novè', 9),
-        ('desè', 10),
+        ('primer', "1"),
+        ('segon', "2"),
+        ('tercer', "3"),
+        ('quart', "4"),
+        ('cinque', "5"),
+        ('sise', "6"),
+        ('sete', "7"),
+        ('vuite', "8"),
+        ('nove', "9"),
+        ('dese', "10"),
 
-        # ('un', 1),
-        # ('una', 1),
-        # ('dos', 2),
-        # ('dues', 2),
-        ('tres', 3),
-        ('quatre', 4),
-        ('cinc', 5),
-        ('sis', 6),       
-        ('set', 7),
-        ('vuit', 8),
-        ('nou', 9),
-        ('deu', 10),
+        # ('un', "1"),
+        # ('una', "1"),
+        # ('dos', "2"),
+        # ('dues', "2"),
+        ('tres', "3"),
+        ('quatre', "4"),
+        ('cinc', "5"),
+        ('sis', "6"),       
+        ('set', "7"),
+        ('vuit', "8"),
+        ('nou', "9"),
+        ('deu', "10"),
+
+        ('1r', "1"),
+        ('2n', "2"),
+        ('3r', "3"),
+        ('4t', "4"),
     ]
 
     words_query = query.split()
@@ -57,7 +62,11 @@ def preprocess(query: str) -> str:
         list: list of words splited without puntuation marks
     """
 
-    query=query.replace(',', '').replace('.', '').replace('?', '').replace('!', '').lower()
+    query=query.replace(',', '').replace('.', '').replace('?', '').replace('!', '')
+    query = query.replace("d'", "").replace("l'", "")
+    query = query.replace("à", "a").replace("è", "e").replace("ì", "i").replace("ò", "o").replace("ù", "u")
+    query = query.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
+    query = query.lower()
     return query
 
 def query_to_list(query:str) -> list:

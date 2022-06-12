@@ -23,12 +23,16 @@ def message(query: str, context: Context())-> list:
     query = utils.preprocess(query)    
     intent = intents.intent_extraction(query) 
     print(f'Intent captured is --> {intent}')
-    entity_list = entities.entities_extraction(query)
+    entity_list, subentity_list = entities.entities_extraction(query)
     print(f'List of entity captured is --> {entity_list}')
-    action, context = dialogue_manager.next_action(intent, entity_list, context)
+    print(f'List of sub_entity captured is --> {subentity_list}')
+    action, context = dialogue_manager.next_action(intent, entity_list, subentity_list, context)
     print(f'Context until now--> \n{context}')
     print(f'Next action will be --> {action}')
+    # try:
     response = reply.generate(action, context)
+    # except Exception as e:
+    #     response = "No he trobat el que em demanes!"
     print(f'Bot reply is --> {response}')
     print('Response send!')
     print('--------------------------------------------')

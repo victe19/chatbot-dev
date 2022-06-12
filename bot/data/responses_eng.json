@@ -1,0 +1,168 @@
+{
+    "hello": {
+        "id": 1.1,
+        "answers": ["Hello {}, nice to greet you, I am G.A.V.I.À your virtual assistant.", "I am G.A.V.I.À your virtual assistant, could you tell me how I can help you?"]
+    },
+    "change_language": {
+        "id": 1.1,
+        "answers": ["Switching language to English", "You have asked me to switch language to English."]
+    },
+    "ask_name": {
+        "id": 1.1,
+        "answers": ["Hello, nice to greet you. First of all, how can I address you?", "Hello, nice to meet you. Could you tell me your name?"]
+    },    
+    "ask_start": {
+        "id": 1.1,
+        "answers": ["{}, could you tell me how I can help you?"]
+    },
+    "ask_start_again": {
+        "id": 1.1,
+        "answers": ["What else can I help you with?", "Is there anything else I can help you with?"]
+    },
+    "ask_degree": {
+        "id": 1.1,
+        "answers": ["According to {}, can you tell me what grade?"]
+    },    
+    "ask_course": {
+        "id": 1.1,
+        "answers": ["OK {}, can you tell me what grade?"]
+    },   
+    "ask_semester": {
+        "id": 1.1,
+        "answers": ["OK {}, could you tell me what semester?"]
+    }, 
+    "ask_mention": {
+        "id": 1.1,
+        "answers": ["OK {}, could you please tell me what degree?"]
+    },
+    "ask_subject": {
+        "id": 1.1,
+        "answers": ["Great {}, could you tell me which subject?", "I need you to tell me the subject {}"]
+    },
+    "ask_term": {
+        "id": 1.1,
+        "answers": ["What do you want to see, {}, the schedule of midterm or final exams?"]
+    },    
+    "ask_info": {
+        "id": 1.1,
+        "answers": ["Okay {}, what would you like more information about?"]
+    },
+    "schedule": {
+        "id": 1.1,
+        "answers": ["Here is the timetable you are asking for {}. ", "I am providing you with the link to the timetable you are asking for {}. "]
+    },
+    "ask_tfg": {
+        "id": 1.1,
+        "answers": ["The TFG is a work that compiles all the knowledge included in your degree. What doubts do you have about the TFG? ", "What doubts do you have about the final degree project?"]
+    },
+    "academic": {
+        "id": 1.1,
+        "answers": ["To consult your academic transcript, {}, you can enter the SIA with your username and password at the following link: "]
+    },    
+    "im_bot": {
+        "id": 1.1,
+        "answers": ["You got it right {}! My name is G.A.V.I.À and I am a virtual assistant. I'll try to help you in any way I can."]
+    },    
+    "need_operator": {
+        "id": 1.1,
+        "answers": ["If you need to get in touch with someone from the school, {}, you can call the following phone number or write to correo@enginyeria.cat"]
+    },
+    "exams": {
+        "id": 1.1,
+        "answers": ["Here is the link to the exams you are asking for. {}", "I am providing you with the link to the exam timetable you are requesting {}. "]
+    }, 
+    "ask_internship": {
+        "id": 1.1,
+        "answers": ["You are thinking of doing an internship, what doubts do you have {} ?", "What information do you need about the internship {}. "]
+    },    
+    "ask_exchange": {
+        "id": 1.1,
+        "answers": ["What information do you need about mobility programmes?", "What questions do you have about studying abroad?"]
+    },
+    "ask_registration": {
+        "id": 1.1,
+        "answers": ["You are asking me about enrolment {}, What do you need?", "{} What doubts do you have about enrolment for this degree?"]
+    },
+    "ask_calendar": {
+        "id": 1.1,
+        "answers": ["What timetable are we talking about?", "What timetable do you need?"]
+    },
+    "teaching_guide": {
+        "id": 1.1,
+        "answers": ["I already have the link to the teaching guide you are asking for. Here it is: ", "Here is the link to the guide you are asking for: ", "OK {} you want to consult the guide?"]
+    },
+    "ask_permanence": {
+        "id": 1.1,
+        "answers": ["Ok {} you want to consult the conditions of permanence. In this link you will find all the information, but in brief: ", "What procedure are we talking about?"]
+    },
+    "ask_procedures": {
+        "id": 1.1,
+        "answers": ["Which procedure are we talking about {}?", "Which procedure do you want to do {}?"]
+    },
+    "ask_credit_recognition": {
+        "id": 1.1,
+        "answers": ["Credit recognition is explained in this link. Even so, what do you need to know?", "What questions do you have about credit recognition?"]
+    },
+    "goodbye": {
+        "id": 1.1,
+        "answers": ["Goodbye, see you again {}. Hope to see you here soon", "See you again. I hope I was able to help. Come back anytime {}!"]
+    },
+    "no_understand": {
+        "id": 1.1,
+        "answers": ["I'm sorry {}, I didn't understand you. Could you repeat it?", "I couldn't understand the last thing you said. Could you repeat it?", "I'm sorry, I don't understand you.", "Can you repeat it?" , "Can you repeat, {}?"]
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

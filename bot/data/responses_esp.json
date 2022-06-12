@@ -1,0 +1,114 @@
+{
+    "hello": {
+        "id": 1.1,
+        "answers": ["Hola {}, encantado de saludarte. Soy G.A.V.I.À tu asistente virtual. ¿Me podrías indicar en qué te puedo ayudar?"]
+    },
+    "change_language": {
+        "id": 1.1,
+        "answers": ["Cambiando de idioma al Español", "Me has pedido que cambie de idioma al Español."]
+    },
+    "ask_name": {
+        "id": 1.1,
+        "answers": ["Hola, encantado de saludarte. Ante todo, ¿cómo puedo dirigirme a ti?", "Hola, encantado de conocerte. ¿Me podrías decir tu nombre?"]
+    },    
+    "ask_start": {
+        "id": 1.1,
+        "answers": ["{}, ¿me podrías indicar en qué puedo ayudarte?"]
+    },
+    "ask_start_again": {
+        "id": 1.1,
+        "answers": ["¿En que más te puedo ayudar?", "¿Te puedo ayudar en algo más?"]
+    },
+    "ask_degree": {
+        "id": 1.1,
+        "answers": ["Conforme {}, ¿me podrías indicar sobre qué grado?"]
+    },    
+    "ask_course": {
+        "id": 1.1,
+        "answers": ["Conforme {}, ¿me podrías indicar de qué curso?"]
+    },   
+    "ask_semester": {
+        "id": 1.1,
+        "answers": ["Conforme {}, ¿me podrías indicar qué semestre?"]
+    }, 
+    "ask_mention": {
+        "id": 1.1,
+        "answers": ["Conforme {}, ¿me podrías indicar de qué mención?"]
+    },
+    "ask_subject": {
+        "id": 1.1,
+        "answers": ["Genial {}, ¿me podrías indicar de qué asignatura?", "Necesito que me digas la asignatura {}"]
+    },
+    "ask_term": {
+        "id": 1.1,
+        "answers": ["¿Qué deseas ver, {}, el calendario de los exámenes parciales o de los finales?"]
+    },    
+    "ask_info": {
+        "id": 1.1,
+        "answers": ["Vale {}, ¿de qué te gustaría tener más información?"]
+    },
+    "schedule": {
+        "id": 1.1,
+        "answers": ["Aquí tienes el horario que me pides {}. ", "Te proporciono el enlace con los horarios que me pides {}. "]
+    },
+    "ask_tfg": {
+        "id": 1.1,
+        "answers": ["El TFG es un trabajo que recopila todos los conocimientos englobados dentro de tu grado. ¿Qué duda tienes sobre el tfg? ", "¿Qué dudas tienes sobre el trabajo de fin de grado?"]
+    },
+    "academic": {
+        "id": 1.1,
+        "answers": ["Para consultar tu expediente académico, {}, puedes entrar en el SIA con tu usuario y contraseña en el siguiente enlace: "]
+    },    
+    "im_bot": {
+        "id": 1.1,
+        "answers": ["Lo has acertado {}! Me llamo G.A.V.I.À y soy un asistente virtual. Intentaré ayudarte en todo lo que pueda."]
+    },    
+    "need_operator": {
+        "id": 1.1,
+        "answers": ["Si necesitas ponerte en contacto con una persona de la escuela, {}, puedes llamar al teléfono siguiente o escribir al correo@enginyeria.cat"]
+    },
+    "exams": {
+        "id": 1.1,
+        "answers": ["Aquí tienes el enlace a los exámenes que me pides. {}", "Te proporciono el enlace con el calendario de exámenes que me pides {}. "]
+    }, 
+    "ask_internship": {
+        "id": 1.1,
+        "answers": ["Estás pensando en hacer unas prácticas. ¿Qué dudas tienes {} ?", "Qué información necesitas sobre las prácticas {}. "]
+    },    
+    "ask_exchange": {
+        "id": 1.1,
+        "answers": ["¿Qué información necesitas sobre los programas de movilidad?", "¿Qué dudas tienes sobre estudiar fuera?"]
+    },
+    "ask_registration": {
+        "id": 1.1,
+        "answers": ["Me preguntas sobre la matrícula {}, ¿Qué necesitas?", "{} ¿qué dudas tienes sobre la matriculación de este grado?"]
+    },
+    "ask_calendar": {
+        "id": 1.1,
+        "answers": ["¿De qué calendario estamos hablando?", "¿Qué calendario necesitas?"]
+    },
+    "teaching_guide": {
+        "id": 1.1,
+        "answers": ["Ya tengo el enlace a la guía docente que me pides. Aquí lo tienes: ", "Aquí te dejo el enlace de la guía que me pides: "]
+    },
+    "ask_permanence": {
+        "id": 1.1,
+        "answers": ["De acuerdo {} quieres consultar las condiciones de permanencia. En este enlace encontrarás toda la información, pero resumidamente: "]
+    },
+    "ask_procedures": {
+        "id": 1.1,
+        "answers": ["¿De qué trámite estamos hablando {}?", "¿Qué trámite deseas hacer {}?"]
+    },
+    "ask_credit_recognition": {
+        "id": 1.1,
+        "answers": ["El reconocimiento de crédito está explicado en este enlace. Aún así, ¿qué necesitas saber?", "¿Qué preguntas tienes sobre el reconocimiento de créditos?"]
+    },
+    "goodbye": {
+        "id": 1.1,
+        "answers": ["Adiós, hasta otro {}. Espero verte por aquí pronto", "Hasta otro. Espero haber podido ayudar. Vuelve cuando quieras {}!"]
+    },
+    "no_understand": {
+        "id": 1.1,
+        "answers": ["Lo siento {}, no te he entendido. ¿Podrías repetir?", "No he podido entender lo último que me has dicho. ¿Me lo puedes repetir?", "Lo siento, no te entiendo." , "Puedes repetir, {}?"]
+    }
+}

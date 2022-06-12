@@ -1,0 +1,118 @@
+{
+    "hello": {
+        "id": 1.1,
+        "answers": ["Hola {}, encantat de saludar-te. Sóc en G.A.V.I.À el teu assistent virtual. Em podries indicar en què et puc ajudar?"]
+    },
+    "change_language": {
+        "id": 1.1,
+        "answers": ["Canviant l'idioma a Català.", "M'ha demanat que canvii d'idioma al català."]
+    },
+    "ask_name": {
+        "id": 1.1,
+        "answers": ["Hola, encantat de saludar-te. Primer de tot, com em puc dirigir a tu?", "Hola, encantat de coneixe't. Em podries dir el teu nom?"]
+    },    
+    "ask_start": {
+        "id": 1.1,
+        "answers": ["{}, em podries indicar en què et puc ajudar?"]
+    },
+    "ask_start_again": {
+        "id": 1.1,
+        "answers": ["En que més et puc ajudar?", "Et puc ajudar en alguna cosa més?"]
+    },
+    "ask_degree": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar sobre quin grau?"]
+    },    
+    "ask_course": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar de quin curs?"]
+    },   
+    "ask_semester": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar quin semestre?"]
+    }, 
+    "ask_mention": {
+        "id": 1.1,
+        "answers": ["D'acord {}, em podries indicar de quina menció?"]
+    },
+    "ask_subject": {
+        "id": 1.1,
+        "answers": ["Genial {}, em podries indicar de quina assignatura?", "Necessito que em diguis l'assignatura {}"]
+    },
+    "ask_term": {
+        "id": 1.1,
+        "answers": ["Quins desitges veure, {}, el calendari dels exàmens parcials o dels finals?"]
+    },    
+    "ask_info": {
+        "id": 1.1,
+        "answers": ["D'acord {}, de què t'agraderia tenir més informació?"]
+    },
+    "schedule": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'l'horari que em demanes {}. ", "Et proporciono l'enllaç amb els horaris que em demanes {}. "]
+    },
+    "ask_tfg": {
+        "id": 1.1,
+        "answers": ["Quin dubte tens sobre el tfg {}? ", "Quins dubtes tens sobre el treball de final de grau?", "Què necessites saber sobre el tfg {}?"]
+    },
+    "academic": {
+        "id": 1.1,
+        "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç: "]
+    },    
+    "im_bot": {
+        "id": 1.1,
+        "answers": ["Ho has encertat {}! Em dic G.A.V.I.À i sóc un assistent virtual. Intentaré ajudar-te en tot el que pugui."]
+    },    
+    "need_operator": {
+        "id": 1.1,
+        "answers": ["Si necessites posar-te en contacte amb una persona de l'escola, {}, pots trucar al telèfon següent o escriure al correu@enginyeria.cat"]
+    },
+    "exams": {
+        "id": 1.1,
+        "answers": ["Aquí tens l'enllaç als exàmens que em demanes. {}", "Et proporciono l'enllaç amb el calendari d'exàmens que em demanes {}. "]
+    }, 
+    "ask_internship": {
+        "id": 1.1,
+        "answers": ["Estàs pensant de fer unes pràctiques. Quins dubtes tens {} ?", "Quina informació necessites sobre les pràctiques {}. "]
+    },    
+    "ask_exchange": {
+        "id": 1.1,
+        "answers": ["Quina informació necessites sobre els programes de mobilitat?", "Quins dubtes tens sobre estudiar fora?"]
+    },
+    "ask_registration": {
+        "id": 1.1,
+        "answers": ["Em preguntes sobre la matrícula {}, Què necessites?", "{} quins dubtes tens sobre la matriculació d'aquest grau?"]
+    },
+    "ask_calendar": {
+        "id": 1.1,
+        "answers": ["De quin calendari estem parlant?", "Quin calendari necessites?"]
+    },
+    "teaching_guide": {
+        "id": 1.1,
+        "answers": ["Ja tinc l'enllaç a la guia docent que em demanes. Aquí el tens: ", "Aquí et deixo l'enllaç de la guía que em demanes: "]
+    },
+    "ask_permanence": {
+        "id": 1.1,
+        "answers": ["D'acord {} vols consultar les condicions de permanència. En aquest enllaç hi trobaràs tota la informació, però resumidament: "]
+    },
+    "ask_procedures": {
+        "id": 1.1,
+        "answers": ["De quin tràmit estem parlant {}?", "Quin tràmit desitges fer {}?"]
+    },
+    "ask_credit_recognition": {
+        "id": 1.1,
+        "answers": ["El reconeixament de crèdit està explicat en aquest enllaç. Tot i així, que necessites saber?", "Quines preguntes tens sobre el reconeixament de crèdits?"]
+    },
+    "goodbye": {
+        "id": 1.1,
+        "answers": ["Adéu, fins un altre {}. Espero veure't per aquí aviat", "Fins un altre. Espero aver-te pogut ajudar. Torna quan vulguis {}!"]
+    },
+    "no_understand": {
+        "id": 1.1,
+        "answers": ["Ho sento {}, no t'he entès. Podríes repetir?", "No he pogut entendre l'últim que m'has dit. M'ho pots repetir?", "Ho sento, no t'entenc.", "Pots repetir, {}?"]
+    },
+    "nothing": {
+        "id": 1.1,
+        "answers": [""]
+    }
+}

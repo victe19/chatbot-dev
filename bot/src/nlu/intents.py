@@ -13,12 +13,12 @@ def greeting(query:str) -> float:
         confidence (float): probability that this query belongs to the intent greet
     """    
     query = utils.query_to_list(query)
-    word_list = ["hola", "holaa", "ola", "salutacions"]
+    word_list = ["hola", "holaa", "ola", "salutacions", "hello"]
 
     if any(word in query for word in word_list):
         return 90
 
-    word_list = ["bones", "bona", "bon", "hey"]
+    word_list = ["bones", "bona", "bon", "buenas", "hey", "hi"]
     if any(word in query for word in word_list):
         return 75
 
@@ -35,12 +35,12 @@ def confirm(query:str) -> float:
         confidence (float): probability that this query belongs to the intent confirm
     """    
     query = utils.query_to_list(query)
-    word_list = ["si", "sí", "confirmo", "d'acord", "vale", "ok", "okey"]
+    word_list = ["confirmo", "d'acord", "vale", "ok", "okey", "yes"]
 
     if any(word in query for word in word_list):
         return 90
 
-    word_list = ["genial", "perfecte", "bé"]
+    word_list = ["genial", "perfecte"]
     if any(word in query for word in word_list):
         return 80
     
@@ -57,7 +57,7 @@ def reject(query:str) -> float:
         confidence (float): probability that this query belongs to the intent reject
     """    
     query = utils.query_to_list(query)    
-    word_list = ['no', 'negatiu', "noo"] 
+    word_list = ['negatiu', "noo"] 
 
     if any(word in query for word in word_list):
         return  90
@@ -80,12 +80,12 @@ def info(query:str) -> float:
     """    
 
     query = utils.query_to_list(query)
-    word_list = ["informació", "informacio", "info", "dubtes", "dubte", "interessat" ]
+    word_list = ["informacio", "informacio", "info", "dubtes", "dubte", "interessat", "informacion", "information" ]
 
     if any(word in query for word in word_list):
         return 90 
     
-    word_list = ["saber"]
+    word_list = ["saber", "know"]
     if any(word in query for word in word_list):
         return 75
 
@@ -115,6 +115,28 @@ def bot(query:str) -> float:
     return 0
 
 
+def goodbye(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["adeu", "adeu", "deu", "adios","chao", "bye"]
+
+    if any(word in query for word in word_list):
+        return 90
+
+    word_list = ["fins un altre", "chau"]
+    if any(word in query for word in word_list):
+        return 75
+
+    return 0
+
+
 def operator(query:str) -> float:
     """_summary_
 
@@ -126,7 +148,7 @@ def operator(query:str) -> float:
     """    
 
     query = utils.query_to_list(query)
-    word_list = ["persona", "humà"]
+    word_list = ["persona", "huma", "humano", "person"]
 
     if any(word in query for word in word_list):
         return 90 
@@ -150,7 +172,7 @@ def get_module_functions() -> list:
 
 def intent_extraction(query: str) -> str:
     confidences = []
-    intent_list = [greeting, confirm, reject, info, bot, operator]
+    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye]
 
     for intent in intent_list:
         confidence = intent(query)

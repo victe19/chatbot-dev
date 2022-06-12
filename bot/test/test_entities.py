@@ -140,3 +140,16 @@ def test_entities_extraction():
         entity = entities.entities_extraction(query)
 
         assert entity == expected_entity
+
+
+def test__sub_entity():
+    test_query = [
+        ("voldria informació sobre la durada del tfg", [["tfg_duration", True]]),
+        ("voldria informació sobre la durada del partit de futbol", [[""]]),
+    ]
+
+    for test in test_query:
+        query, expected_subentity = test
+        subentity = entities._sub_entity(query, 'tfg')
+
+        assert subentity == expected_subentity

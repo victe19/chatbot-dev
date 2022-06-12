@@ -1,24 +1,33 @@
 from dataclasses import dataclass
+from multiprocessing import context
 
 
 @dataclass
 class Context:
+    academic: bool = None
+    calendar: bool = None
+    coordination: bool = None
     course: str = None
+    credit_recognition: bool = None
     degree:str = None
     department: str = None
-    mencion: str = None
-    professor: str = None
-    semester: int = None
-    year: int = None
-    academic: bool = None
     exams: bool = None
     exchange: bool = None
     internship: bool = None
+    language: str = 'cat'
+    mention: str = None
+    permanence: bool = None
+    procedures: bool = None
+    professor: str = None
     registration: bool = None
     schedule: bool = None
+    semester: int = None
     teaching_guide: bool = None
+    term: str = None
     tfg: bool = None
     username: str = ""
+    subject: str = None
+    year: int = None
     status: str = "start"
 
 
@@ -38,5 +47,13 @@ class Context:
                 status_list.append(field)
 
         return status_list
+    
+
+def clean_context(name: str, status: str = "start_again") -> Context:
+    context = Context()
+    context.username = name
+    context.status = status
+    return context
+
 
 
