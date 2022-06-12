@@ -112,17 +112,32 @@ def get_agent_bot_details(self):
   print(response.text)
 
 
-def get_list_all_inboxes(self):
+def get_list_all_inboxes():
 
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/inboxes'
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
 
-  response = requests.request("GET", url, headers=headers)
-  # print(response.text)
+  data = json.dumps({ 
+      "status": 'pending'
+    })  
+
+  response_open= requests.request("GET", url, headers=headers)
+  response_pending = requests.request("GET", url, headers=headers, data=data)
+
+  open_conversations = json.loads(response_open.text)
+  payload_list = open_conversations['data']['payload']
+  open_id_list = [payload['id'] for payload in payload_list]
+
+  pending_conversations = json.loads(response_pending.text)
+  payload_list = pending_conversations['data']['payload']
+  pending_id_list = [payload['id'] for payload in payload_list]
+  
+  return open_id_list # + pending_id_list
 
 
-def get_messages_from_conversation():
 
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/10/messages'
+def get_messages_from_conversation(inbox: str):
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{inbox}/messages'
 
   response = requests.request("GET", url, headers=headers)
   message_meta = json.loads(response.text)
@@ -132,9 +147,9 @@ def get_messages_from_conversation():
       return last_message_json['content']
 
 
-def post_messages_to_conversation(message: str):
+def post_messages_to_conversation(message: str, inbox: str):
 
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/10/messages'
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{inbox}/messages'
 
   payload = json.dumps({ 
     "content": message, 
