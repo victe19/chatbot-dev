@@ -1,4 +1,3 @@
-from numpy import degrees
 from bot.src.context import Context, clean_context
 
 def get_tfg_entities() -> str:
