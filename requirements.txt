@@ -1,17 +1,21 @@
 
+Django == 4.0.1
 asgiref == 3.4.1
-colorama
-datetime
+colorama == 0.4.3
+dj-database-url == 0.5.0
 django-heroku  == 0.3.1
 gunicorn == 20.1.0
-inspect
-json
-numpy
-operator
-pip == 21.3.1
-pip3
-random
-re
-requests
-sys
-threading
+pip == 22.1.2
+requests == 2.27.1
+numpy==1.20.3
+
+# datetime
+# inspect
+# json
+# numpy
+# operator
+# pip3
+# random
+# re
+# sys
+# threading
