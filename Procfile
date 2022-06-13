@@ -1,1 +1,1 @@
-web: gunicorn gavia-chatbot.wsgi
+web: gunicorn software.wsgi
