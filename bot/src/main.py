@@ -27,9 +27,10 @@ def conversation_thread(inbox: str):
 # login()
 inboxes = get_list_all_inboxes()
 print(f"Llista conversations: {inboxes}")
-threads = list()
+threads = []
 for inbox in inboxes:
     t = threading.Thread(target=conversation_thread, args=(inbox,))
     threads.append(t)
     t.start()
+
 
