@@ -8,9 +8,7 @@ import threading
 
 context = Context()
 
-def conversation_thread(inbox: str):
-    """funcion que realiza el trabajo en el thread"""
-    print(f"Aquesta és la conversa {inbox}")
+def conversation_thread(inbox: str ='10'):
     query = get_messages_from_conversation(inbox)
     while 1:
         while query == None:
@@ -25,12 +23,17 @@ def conversation_thread(inbox: str):
     return
 
 # login()
-inboxes = get_list_all_inboxes()
-print(f"Llista conversations: {inboxes}")
-threads = []
-for inbox in inboxes:
-    t = threading.Thread(target=conversation_thread, args=(inbox,))
-    threads.append(t)
-    t.start()
+
+# inboxes = get_list_all_inboxes()
+# print(f"Llista conversations: {inboxes}")
+# threads = []
+# for inbox in inboxes:
+#     t = threading.Thread(target=conversation_thread, args=(inbox,))
+#     threads.append(t)
+#     t.start()
+
+
+if __name__ == "__main__":
+    conversation_thread()
 
 
