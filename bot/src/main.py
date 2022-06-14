@@ -10,7 +10,7 @@ import threading
 import logging
 import time
 
-
+print("Loading chat server")
 
 context = Context()
 
@@ -53,8 +53,8 @@ def substract_lists(list_1: List, list_2: List):
 # if __name__ == "__main__":
 #     conversation_thread()
 
-
-if __name__ == "__main__":
+def starter():
+    print("Starting chat server")
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
 
@@ -83,6 +83,10 @@ if __name__ == "__main__":
                 t.start()        
             conversations_to_solve = []
         time.sleep(2)
+
+
+if __name__ == "__main__":
+    starter()
         
             
 
