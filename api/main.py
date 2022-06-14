@@ -112,26 +112,57 @@ def get_agent_bot_details(self):
   print(response.text)
 
 
-def get_list_all_inboxes():
+def get_open_conversations():
 
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
-
-  data = json.dumps({ 
-      "status": 'pending'
-    })  
-
   response_open= requests.request("GET", url, headers=headers)
-  response_pending = requests.request("GET", url, headers=headers, data=data)
 
   open_conversations = json.loads(response_open.text)
   payload_list = open_conversations['data']['payload']
   open_id_list = [payload['id'] for payload in payload_list]
 
+  return open_id_list
+
+
+def get_new_conversations():
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
+
+  data = json.dumps({ 
+      "status": 'pending'
+  })  
+
+  response_pending = requests.request("GET", url, headers=headers, data=data)
+
   pending_conversations = json.loads(response_pending.text)
   payload_list = pending_conversations['data']['payload']
   pending_id_list = [payload['id'] for payload in payload_list]
   
-  return open_id_list # + pending_id_list
+  return pending_id_list
+  # return pending_conversations
+
+
+def assinge_conversations(conversation_id):
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{conversation_id}/assignments'
+
+  data = json.dumps({
+    "assignee_id": 63149,
+    "team_id": 0
+  })  
+
+  response_pending = requests.request("POST", url, headers=headers, data=data)
+  
+
+def get_all_conversations():
+  open_conversations = get_open_conversations()
+  new_conversations = get_new_conversations()
+
+  for conversation in new_conversations:
+    assinge_conversations(conversation)
+
+  return open_conversations + new_conversations
+
 
 
 
@@ -172,7 +203,7 @@ def post_messages_to_conversation(message: str, inbox: str):
 
 #   def interact_with_conversation_api(self):
 #     login(self)
-#     get_list_all_inboxes(self)
+#     get_open_conversations(self)
 #     message = get_messages_from_conversation()
 #     # self.contact_source_id = create_contact(self)
 #     # self.converation_id = create_conversation(self)

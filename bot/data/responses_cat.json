@@ -105,7 +105,7 @@
     },
     "goodbye": {
         "id": 1.1,
-        "answers": ["Adéu, fins un altre {}. Espero veure't per aquí aviat", "Fins un altre. Espero aver-te pogut ajudar. Torna quan vulguis {}!"]
+        "answers": ["Adéu, fins un altre {}. Espero tornar-te a veure per aquí aviat", "Fins un altre. Espero aver-te pogut ajudar. Torna quan vulguis {}!"]
     },
     "no_understand": {
         "id": 1.1,

@@ -1,39 +1,81 @@
-from colorama import Fore, Style
+from typing import List
+from colorama import Fore
+
 
 import bot.src.flowbot as bot
 from context import Context
-from api.main import get_messages_from_conversation, post_messages_to_conversation, get_list_all_inboxes
+import api.main as api
 import threading
+import logging
+import time
+
 
 
 context = Context()
 
-def conversation_thread(inbox: str ='10'):
-    query = get_messages_from_conversation(inbox)
-    while 1:
-        while query == None:
-            query = get_messages_from_conversation(inbox)
-        print(f"{Fore.GREEN}User:{Fore.WHITE} {query}")
+def init_conversation(conversation_id: str):
+    query = api.get_messages_from_conversation(conversation_id)
+    while context.adeu == False:
+        # start = time.clock() 
+        while query == None: #or elapsed >= 20:
+            # elapsed = time.clock()
+            # elapsed = elapsed - start
+            query = api.get_messages_from_conversation(conversation_id)
+
+        # print(f"{Fore.GREEN}User:{Fore.WHITE} {query}")
         reply = bot.message(query, context)
         query = None
-        print(f"{Fore.YELLOW}Bot:{Fore.WHITE} {reply}")
-        post_messages_to_conversation(reply, inbox)
-        while query == None:
-            query = get_messages_from_conversation(inbox)
-    return
+        # print(f"{Fore.YELLOW}Bot:{Fore.WHITE} {reply}")
+        api.post_messages_to_conversation(reply, conversation_id)
+    
 
-# login()
+def substract_lists(list_1: List, list_2: List):
+    return [el for el in list_1 if el not in list_2 ]
 
-# inboxes = get_list_all_inboxes()
-# print(f"Llista conversations: {inboxes}")
-# threads = []
-# for inbox in inboxes:
-#     t = threading.Thread(target=conversation_thread, args=(inbox,))
-#     threads.append(t)
-#     t.start()
+# # login()
+
+# while 1:
+#     inbox = get_open_conversations()
+#     threads = []
+
+#     print(f"Conversations: {len(inboxes)}")
+#     print(f"Threads: {len(threads)}")
+    
+#     if len(inboxes) != len(threads):
+#         for inbox in inboxes:
+#             print("entramos")
+#             t = threading.Thread(target=init_conversation, args=(inbox,))
+#             threads.append(t)
+#             t.start()
+
+
+# if __name__ == "__main__":
+#     conversation_thread()
 
 
 if __name__ == "__main__":
-    conversation_thread()
+    format = "%(asctime)s: %(message)s"
+    logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
 
+    conversations_slack = []
+    threads = []
 
+    while 1:
+      conversations = api.get_all_conversations()
+      print(f"conversations --> {conversations}")
+      if len(conversations) != len(conversations_slack):
+        conversations_to_solve = substract_lists(conversations, conversations_slack)
+        print(f"Conversation_slack --> {conversations_slack}")
+        print(f"Conversation to solve --> {conversations_to_solve}")
+        conversations_slack = conversations
+        for conversation in conversations_to_solve:
+            logging.info("Main    : create and start thread %d.", conversation)
+            t = threading.Thread(target=init_conversation, args=(conversation,))
+            threads.append(t)
+            t.start()        
+        conversations_to_solve = []
+
+        # for conversation, thread in enumerate(threads):
+        #     logging.info("Main    : before joining thread %d.", conversation)
+        #     thread.join()
+        #     logging.info("Main    : thread %d done", conversation)

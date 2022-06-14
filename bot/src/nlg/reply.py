@@ -14,7 +14,7 @@ def get_teacher_office(profe: str, room: str):
 def get_degree_schedule(degree, course, semester, mention = None):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/upload_db.json") as f:
+    with open(f"bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
     
     if mention is None:
@@ -28,27 +28,28 @@ def get_degree_schedule(degree, course, semester, mention = None):
 def get_degree_exams(degree, semester, term):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/upload_db.json") as f:
+    with open(f"bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
 
     return subject_dict['exams'][semester][term]
 
+
 def get_tfg_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/upload_db.json") as f:
+    with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
-    return subject_dict['subjects']['Treball Final de Grau']['info'][sub_entity_list]
+    return subject_dict['treball final de grau']['info'][sub_entity_list]
+
 
 def get_internship_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/upload_db.json") as f:
+    with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
     return subject_dict['subjects']['Optatives']['Practiques Externes']['info']['curricular']['pracC_steps']
-
 
 
 def get_teaching_guide(degree, subject):
@@ -59,7 +60,6 @@ def get_teaching_guide(degree, subject):
 
     return subject_dict['subjects'][subject]['teaching_guide']
     
-
 
 def generate(action: str, context: Context()) -> str:    
     dynamic_info = ''

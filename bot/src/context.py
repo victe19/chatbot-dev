@@ -4,6 +4,7 @@ from multiprocessing import context
 
 @dataclass
 class Context:
+    adeu: bool = False
     academic: bool = None
     calendar: bool = None
     coordination: bool = None

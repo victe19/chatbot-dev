@@ -31,6 +31,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     elif intent == 'goodbye':
         if entity_list == []:
             action = 'goodbye'
+            context.adeu = True
     
     elif intent == 'bot':
         if entity_list == []:
@@ -66,7 +67,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         #SCHEDULE
         if entity_list == "schedule" or context.schedule != None:
             if context.degree != None and context.course != None and context.semester != None:
-                if context.course == "3" and context.mention == None:  
+                if context.degree == "informatica" and context.course == "3" and context.mention == None:  
                     action = "ask_mention"
                 else:
                     action = "schedule"
@@ -80,7 +81,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         #EXAMS
         if entity_list == "exams" or context.exams != None:
             if context.degree != None and context.term != None and context.semester != None:
-                if context.course == "3" and context.mention != None:  
+                if context.degree == "informatica" and context.course == "3" and context.mention != None:  
                     action = "ask_mention"
                 action = "exams"
                 # context = clean_context(context.username)
