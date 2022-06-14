@@ -171,6 +171,7 @@ def get_messages_from_conversation(inbox: str):
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{inbox}/messages'
 
   response = requests.request("GET", url, headers=headers)
+  print(f"Status code --> {response.status_code}")
   message_meta = json.loads(response.text)
   message_list = message_meta["payload"]
   last_message_json = message_list[-1]

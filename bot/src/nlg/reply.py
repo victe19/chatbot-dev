@@ -55,7 +55,7 @@ def get_internship_info(sub_entity_list):
 def get_teaching_guide(degree, subject):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/upload_db.json") as f:
+    with open("bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
 
     return subject_dict['subjects'][subject]['teaching_guide']
