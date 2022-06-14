@@ -40,7 +40,7 @@ def get_tfg_info(sub_entity_list):
     with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
-    return subject_dict['treball final de grau']['info'][sub_entity_list]
+    return subject_dict['treball final de grau'][sub_entity_list]
 
 
 def get_internship_info(sub_entity_list):
@@ -49,7 +49,7 @@ def get_internship_info(sub_entity_list):
     with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
-    return subject_dict['subjects']['Optatives']['Practiques Externes']['info']['curricular']['pracC_steps']
+    return subject_dict['practiques externes']['extracurricular'][sub_entity_list]
 
 
 def get_teaching_guide(degree, subject):
@@ -79,6 +79,7 @@ def generate(action: str, context: Context()) -> str:
         action = 'nothing'
     
     responses_language = 'responses_' + context.language
+
     responses = utils.json_parser(f"bot/data/{responses_language}.json")
     answer_list = responses.get(action)["answers"]
     answer = answer_list[random.randint(0, len(answer_list)-1)]

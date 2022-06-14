@@ -13,7 +13,7 @@
     },    
     "ask_start": {
         "id": 1.1,
-        "answers": ["{}, em podries indicar en què et puc ajudar?"]
+        "answers": ["Em podries indicar en què et puc ajudar?", "En què et puc ajudar {}?", "Què necessites {} ?"]
     },
     "ask_start_again": {
         "id": 1.1,

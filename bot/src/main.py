@@ -1,3 +1,4 @@
+from cmath import e
 from typing import List
 from colorama import Fore
 
@@ -60,20 +61,29 @@ if __name__ == "__main__":
     conversations_slack = []
     threads = []
 
+    num_retries = 0
     while 1:
-      conversations = api.get_all_conversations()
-      print(f"conversations --> {conversations}")
-      if len(conversations) != len(conversations_slack):
-        conversations_to_solve = substract_lists(conversations, conversations_slack)
-        print(f"Conversation_slack --> {conversations_slack}")
-        print(f"Conversation to solve --> {conversations_to_solve}")
-        conversations_slack = conversations
-        for conversation in conversations_to_solve:
-            logging.info("Main    : create and start thread %d.", conversation)
-            t = threading.Thread(target=init_conversation, args=(conversation,))
-            threads.append(t)
-            t.start()        
-        conversations_to_solve = []
+        try:
+            conversations = api.get_all_conversations()
+            print(f"conversations --> {conversations}")
+        except Exception as e:
+            num_retries += 1
+            if num_retries > 5:
+                break
+            continue
+        if len(conversations) != len(conversations_slack):
+            conversations_to_solve = substract_lists(conversations, conversations_slack)
+            print(f"Conversation_slack --> {conversations_slack}")
+            print(f"Conversation to solve --> {conversations_to_solve}")
+            conversations_slack = conversations
+            for conversation in conversations_to_solve:
+                logging.info("Main    : create and start thread %d.", conversation)
+                t = threading.Thread(target=init_conversation, args=(conversation,))
+                threads.append(t)
+                t.start()        
+            conversations_to_solve = []
+        
+            
 
         # for conversation, thread in enumerate(threads):
         #     logging.info("Main    : before joining thread %d.", conversation)

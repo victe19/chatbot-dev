@@ -11,7 +11,7 @@ departaments_regex = "(departament)( de |d')?(ciencies de la computacio|enginyer
 subject_regexx = "(?:(?:assignatura |materia )(?:de |d')?((?:[^,.\\s]*)(?:(?: de | dels? | i | d'| |, )(?:[^,.\\s]*))?))" #50%
 subject_regex = "(algebra|calcul|electricitat i electronica|fonaments dels computadors|fonaments d'informatica|matematica discreta|metodologia de la programacio|organitzacio i gestio d'empreses|fonaments d'enginyeria|estadistica|arquitectura de computadors|bases de dades|enginyeria del software|estructura de computadors|informacio i seguretat|intel·ligencia artificial|laboratori de programacio|sistemes operatius|xarxes|disseny de software|requisits del software|gestio i administracio de bases de dades|test i qualitat del software|gestio del desenvolupament del software|models de qualitat en la gestio de les tic|arquitectura i tecnologies de software|laboratori integrat de software|analisi i disseny d'algorismes|coneixement raonament i incertesa|aprenentatge computacional|visualitzacio grafica interactiva|compiladors|visio per computador|robotica, lenguatge i planificacio|sistemes multimedia|fonaments de tecnologia de la informacio|sistemes d'informacio|sistemes distribuïts|disseny del software|infraestructura i tecnologia de xarxes|tecnologies avançades dinternet|sistemes i tecnologies web|garantia de la informacio i seguretat|sistemes encastats|gestio i administracio de xarxes|arquitectures avançades|microprocessadors i periferics|computacio d'altes prestacions|integracio hardware software|prototipatge de sistemes encastats|gestio de projectes)"
 
-language_regex = "(?:(catala| ?cat ?)|(castella|castellano|español| ?esp ?)|(angles|english| ?eng ?))" #50%
+language_regex = "(?:(catala| ?cat ?)|(castella|castellano|español| ?esp ?)|(angles|english| ?eng ))" #50%
 mention_regex = "(?:(?:mencio)?(?: en | de )?(?:enginyeria del? |tecnologies de la )?(computacio|software|computadors|informacio))" #done
 professor_regex = ""
 semester_regex = "(?:((primer|1er|1r?)|(segon|2n|2n?)) (?:semestre|quatrimestre|periode))" #done 
@@ -35,6 +35,7 @@ entities_dict = {
     'credit_recognition': ['reconeixament de credits', 'reconaixament de credits'],
     'tfg': ['tfg', 'treball final'],
     'coordination': ['coordinacio', 'coordinacio', 'cordinadors', 'cordina'],
+    'start' : ['començar']
 }
 
 sub_entities_dict = {
@@ -69,6 +70,14 @@ sub_entities_dict = {
         'internship_salary': ['remunerades', 'remuneracio', 'cobrar', 'diners'],
         'internship_aboard': ['a fora', 'exterior', 'pais', 'extranger'],
         'internship_moreinfo': ['informacio', 'mes'],
+    },
+    'registration': {
+        "registration_link": ["enllaç", "pagina", "link"],
+        "registration_steps": ["pasos", "seguir"],
+        "registration_date": ["dates"],
+        "registration_documentation": ["documentacio", "papers"],
+        "registration_payment": ["pagament", "diners", "pago", "pagar"],
+        "registration_faqs": ["dubtes"]
     }
 }
 

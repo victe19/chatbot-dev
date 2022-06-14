@@ -30,6 +30,7 @@ class Context:
     subject: str = None
     year: int = None
     status: str = "start"
+    start: bool = False
 
 
     def setup_context(self, entity_list):

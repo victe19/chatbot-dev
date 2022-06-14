@@ -21,6 +21,8 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         action = 'hello'
     elif 'language' in entity_list:
         action = 'change_language'
+    # elif context.start == True:
+    #     context = Context()
 
     elif intent == 'greeting' and entity_list == []:
         if entity_list == [] and context.username != None:
@@ -51,6 +53,9 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         if entity_list == []:
             action = 'ask_start'
             context.status = 'info_more'
+        
+        # Context clean-up
+        # if entitat que 
 
         # # DEGREE
         # if 'degree' in entity_list and 'course' in entity_list:
@@ -108,6 +113,12 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         elif entity_list == "tfg" or context.tfg != None:
             if subentity_list == []:
                 action = "ask_tfg"
+            else:
+                action = subentity_list[0][0]
+
+        elif entity_list == "registration" or context.registration != None:
+            if subentity_list == []:
+                action = "ask_registration"
             else:
                 action = subentity_list[0][0]
 
