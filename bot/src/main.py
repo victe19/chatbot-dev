@@ -82,6 +82,7 @@ if __name__ == "__main__":
                 threads.append(t)
                 t.start()        
             conversations_to_solve = []
+        time.sleep(2)
         
             
 
