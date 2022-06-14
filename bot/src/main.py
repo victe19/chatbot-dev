@@ -22,6 +22,7 @@ def init_conversation(conversation_id: str):
             # elapsed = time.clock()
             # elapsed = elapsed - start
             query = api.get_messages_from_conversation(conversation_id)
+            time.sleep(2)
 
         # print(f"{Fore.GREEN}User:{Fore.WHITE} {query}")
         reply = bot.message(query, context)
