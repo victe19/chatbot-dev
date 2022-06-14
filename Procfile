@@ -1,1 +1,1 @@
-web: python bot/src/main.py
+worker: python bot/src/main.py
