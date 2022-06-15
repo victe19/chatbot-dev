@@ -55,25 +55,36 @@ def get_internship_info(sub_entity_list):
 def get_teaching_guide(degree, subject):
     # subject_dict = get_from_db('degrees', degree)
 
-    with open("bot/data/{degree}.json") as f:
+    with open(f"bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
 
     return subject_dict['subjects'][subject]['teaching_guide']
     
 
-def generate(action: str, context: Context()) -> str:    
+def generate(action: str, context: Context) -> str:    
     dynamic_info = ''
     if action == 'teacher_office':
-        dynamic_info = get_teacher_office(context.profe)
+        dynamic_info = get_teacher_office(context.professor)
+    
     elif action == 'schedule':
         dynamic_info = get_degree_schedule(context.degree, context.course, context.semester, context.mention)
+        context.course = None
+        context.semester = None
+        context.mention = None
     elif action == 'exams':
         dynamic_info = get_degree_exams(context.degree, context.semester, context.term)
+        # context = context.clean_context(['semester', 'term'])
+        context.semester = None
+        context.term = None
+
     elif action == 'teaching_guide':
         dynamic_info = get_teaching_guide(context.degree, context.subject)
+        context.subject = None
+    
     elif 'tfg' in action and action != 'ask_tfg':
         dynamic_info = get_tfg_info(action)
         action = 'nothing'
+    
     elif 'internship' in action and action != 'ask_internship':
         dynamic_info = get_internship_info(action)
         action = 'nothing'

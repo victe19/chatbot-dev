@@ -64,3 +64,12 @@ def test_next_action_ask_degree_without_intent():
     action = ""
     context.status = ""
 
+
+def test_get_entity_name():
+    entity_list = [['exams', True], ['teaching_guide', True], ['tfg', True]]
+    expect_names = ['exams', 'teaching_guide', 'tfg']
+
+    result_names = dialogue_manager.get_entity_name(entity_list)
+
+    assert result_names == expect_names
+

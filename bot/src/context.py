@@ -49,13 +49,21 @@ class Context:
                 status_list.append(field)
 
         return status_list
-    
 
-def clean_context(name: str, status: str = "start_again") -> Context:
-    context = Context()
-    context.username = name
-    context.status = status
-    return context
+
+    def clean_context(self, context_list):
+        print(f"Cleaning Context for {context_list} . . . ")
+        for name in context_list:
+            print(name)
+            self.name = None
+        return self
+        
+
+    def reset_context(self, name: str, status: str = "start_again"):
+        self = Context()
+        self.username = name
+        self.status = status
+
 
 
 

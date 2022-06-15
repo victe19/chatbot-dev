@@ -21,19 +21,19 @@
     },
     "ask_degree": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar sobre quin grau?"]
+        "answers": ["D'acord {}, em podries indicar sobre quin grau?", "Quin curs {}?", "Puc saber el curs, siusplau"]
     },    
     "ask_course": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar de quin curs?"]
+        "answers": ["D'acord {}, em podries indicar de quin curs?", "Quina curs {}?", "Em pots dir el curs, siusplau"]
     },   
     "ask_semester": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar quin semestre?"]
+        "answers": ["D'acord {}, em podries indicar quin semestre?", "Quin semestre {}?", "Em pots dir el semestre, siusplau"]
     }, 
     "ask_mention": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar de quina menció?"]
+        "answers": ["D'acord {}, em podries indicar de quina menció?", "Quina menció {}?", "Em pots dir la menció, siusplau"]
     },
     "ask_subject": {
         "id": 1.1,
@@ -41,23 +41,23 @@
     },
     "ask_term": {
         "id": 1.1,
-        "answers": ["Quins desitges veure, {}, el calendari dels exàmens parcials o dels finals?"]
+        "answers": ["Quins desitges veure, {}, el calendari dels exàmens parcials o dels finals?", "Exàmens parcials o finals?", "Quins vols, els parcials o els finals?"]
     },    
     "ask_info": {
         "id": 1.1,
-        "answers": ["D'acord {}, de què t'agraderia tenir més informació?"]
+        "answers": ["D'acord {}, de què t'agraderia tenir més informació?", "De què vols saber més {}?"]
     },
     "schedule": {
         "id": 1.1,
-        "answers": ["Aquí tens l'l'horari que em demanes {}. ", "Et proporciono l'enllaç amb els horaris que em demanes {}. "]
+        "answers": ["Aquí tens l'l'horari que em demanes {}: ", "Et proporciono l'enllaç amb els horaris que em demanes {}: "]
     },
     "ask_tfg": {
         "id": 1.1,
-        "answers": ["Quin dubte tens sobre el tfg {}? ", "Quins dubtes tens sobre el treball de final de grau?", "Què necessites saber sobre el tfg {}?"]
+        "answers": ["Quins dubte tens sobre el tfg {}?", "Quins dubtes tens sobre el treball de final de grau?", "Què necessites saber sobre el tfg{}?"]
     },
     "academic": {
         "id": 1.1,
-        "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç: "]
+        "answers": ["Per tal de consultar el teu expedient acadèmic, {}, pots entrar al SIA amb el teu usuari i contrasenya en el següent enllaç: shorturl.at/hCHLO"]
     },    
     "im_bot": {
         "id": 1.1,
@@ -69,11 +69,11 @@
     },
     "exams": {
         "id": 1.1,
-        "answers": ["Aquí tens l'enllaç als exàmens que em demanes. {}", "Et proporciono l'enllaç amb el calendari d'exàmens que em demanes {}. "]
+        "answers": ["Aquí tens l'enllaç als exàmens que em demanes: ", "Et proporciono l'enllaç amb el calendari d'exàmens que em demanes {}: "]
     }, 
     "ask_internship": {
         "id": 1.1,
-        "answers": ["Estàs pensant de fer unes pràctiques. Quins dubtes tens {} ?", "Quina informació necessites sobre les pràctiques {}. "]
+        "answers": ["Estàs pensant de fer unes pràctiques. Quins dubtes tens {}?", "Quina informació necessites sobre les pràctiques {}."]
     },    
     "ask_exchange": {
         "id": 1.1,
@@ -81,15 +81,15 @@
     },
     "ask_registration": {
         "id": 1.1,
-        "answers": ["Em preguntes sobre la matrícula {}, Què necessites?", "{} quins dubtes tens sobre la matriculació d'aquest grau?"]
+        "answers": ["Em preguntes sobre la matrícula {}, pregunta'm el què necessites.", "Quins dubtes tens sobre la matriculació d'aquest grau?"]
     },
     "ask_calendar": {
         "id": 1.1,
-        "answers": ["De quin calendari estem parlant?", "Quin calendari necessites?"]
+        "answers": ["De quin calendari estem parlant {}?", "Quin calendari necessites?"]
     },
     "teaching_guide": {
         "id": 1.1,
-        "answers": ["Ja tinc l'enllaç a la guia docent que em demanes. Aquí el tens: ", "Aquí et deixo l'enllaç de la guía que em demanes: "]
+        "answers": ["Ja tinc l'enllaç a la guia docent que em demanes {}. Aquí el tens: ", "Aquí et deixo l'enllaç de la guía que em demanes: "]
     },
     "ask_permanence": {
         "id": 1.1,

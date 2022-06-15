@@ -1,7 +1,8 @@
-from bot.src.context import Context, clean_context
+from bot.src.context import Context
+from typing import List
 
-def get_tfg_entities() -> str:
-    pass
+def get_entity_name(entity_list: List) -> List[str]:
+    return [entity for entity in entity_list]
 
 def setup_entities(entity_list: list, context: Context()) -> list:
     Context.setup_context(context, entity_list)
@@ -53,24 +54,11 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         if entity_list == []:
             action = 'ask_start'
             context.status = 'info_more'
-        
-        # Context clean-up
-        # if entitat que 
-
-        # # DEGREE
-        # if 'degree' in entity_list and 'course' in entity_list:
-        #     action = 'ask_wich_info'
-
-        # elif context.degree != None and context.course != None:
-        #     action = 'ask_wich_info'
-        
-        # elif 'course' in entity_list:
-        #     action = 'ask_degree'
-        #     context.status = "info_more_degree"           
-
+    
+        entity_names = get_entity_name(entity_list)
 
         #SCHEDULE
-        if entity_list == "schedule" or context.schedule != None:
+        if "schedule" in entity_names or "degree" in entity_names or "course" in entity_names or "semester" in entity_names: 
             if context.degree != None and context.course != None and context.semester != None:
                 if context.degree == "informatica" and context.course == "3" and context.mention == None:  
                     action = "ask_mention"
@@ -83,44 +71,44 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             elif context.semester == None:
                 action = "ask_semester" 
         
+
         #EXAMS
-        if entity_list == "exams" or context.exams != None:
-            if context.degree != None and context.term != None and context.semester != None:
-                if context.degree == "informatica" and context.course == "3" and context.mention != None:  
-                    action = "ask_mention"
-                action = "exams"
-                # context = clean_context(context.username)
-            elif context.degree == None:
-                context.status = "info_more"
-                action = "ask_degree"
-            elif context.term == None:
-                context.status = "info_more"
-                action = "ask_term"    
-            elif context.semester == None:
-                context.status = "info_more"
-                action = "ask_semester" 
+        elif "exams" in entity_names or "degree" in entity_names or "semester" in entity_names: 
+                if context.degree != None and context.term != None and context.semester != None:
+                    action = "exams"
+                elif context.degree == None:
+                    action = "ask_degree"
+                elif context.term == None:
+                    action = "ask_term"    
+                elif context.semester == None:
+                    action = "ask_semester" 
         
-        #teaching_guide
-        elif 'teaching_guide' == entity_list or context.teaching_guide != None:
-            if context.degree != None and context.subject != None:
-                action = "teaching_guide"
-            elif context.degree is None:
-                action = "ask_degree"
-            elif context.subject is None:
-                action = "ask_subject"
+    
+        #TEACHING_GUIDE
+        elif "teaching_guide" in entity_names or "degree" in entity_names or "subject" in entity_names: 
+                if context.degree != None and context.subject != None:
+                    action = "teaching_guide"
+                elif context.degree is None:
+                    action = "ask_degree"
+                elif context.subject is None:
+                    action = "ask_subject"
+
 
         #TFG
-        elif entity_list == "tfg" or context.tfg != None:
+        elif "tfg" in entity_names or context.tfg != None:
             if subentity_list == []:
                 action = "ask_tfg"
             else:
                 action = subentity_list[0][0]
 
+
+        #REGISTRATION
         elif entity_list == "registration" or context.registration != None:
             if subentity_list == []:
                 action = "ask_registration"
             else:
                 action = subentity_list[0][0]
+
 
         #INTERNSHIP
         elif entity_list == "internship" or context.internship != None:
@@ -128,6 +116,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
                 action = "ask_internship"
             else:
                 action = subentity_list[0][0]
+
 
         #ACADEMIC       
         elif entity_list == "academic" or context.academic != None:
@@ -139,38 +128,36 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             action = "ask_exchange"
         
 
-        #registration
+        #REGISTRATION
         elif 'registration' == entity_list or context.registration != None:
             action = "ask_registration"
         
 
-        #calendar
+        #CALENDAR
         elif 'calendar' == entity_list or context.calendar != None:
             action = "ask_calendar"
         
 
-
-
-        #permanence
+        #PERMANENCE
         elif 'permanence' == entity_list or context.permanence != None:
             action = "ask_permanence"
         
 
-        #procedures
+        #PROCEDURES
         elif 'procedures' == entity_list or context.procedures != None:
             action = "ask_procedures"
         
 
-        #credit_recognition
+        #CREDIT_RECOGNITION
         elif 'credit_recognition' == entity_list or context.credit_recognition != None:
             action = "ask_credit_recognition"
 
 
-        #coordination
+        #COORDINATION
         elif 'coordination' == entity_list or context.coordination != None:
             action = "ask_coordination"
              
-
+             
         #FLUX
         elif entity_list == []:
             if context.status == 'start':
