@@ -1,38 +1,37 @@
 from dataclasses import dataclass
 from multiprocessing import context
 
+DYNAMIC_STATUS = ["academic", "calendar", "coordination", "credit_recognition", "exams", "exchange", "internship", "permanence", "procedures", "registration", "schedule", "teaching_guide", "tfg"]
 
 @dataclass
 class Context:
-    adeu: bool = False
-    academic: bool = None
-    calendar: bool = None
-    coordination: bool = None
     course: str = None
-    credit_recognition: bool = None
     degree:str = None
     department: str = None
-    exams: bool = None
-    exchange: bool = None
-    internship: bool = None
     language: str = 'cat'
     mention: str = None
-    permanence: bool = None
-    procedures: bool = None
     professor: str = None
-    registration: bool = None
-    schedule: bool = None
     semester: int = None
-    teaching_guide: bool = None
-    term: str = None
-    tfg: bool = None
-    username: str = ""
-    subject: str = None
-    year: int = None
     status: str = "start"
+    subject: str = None
+    term: str = None
+    username: str = ""
+    year: int = None
+    
+    adeu: bool = False
     start: bool = False
 
 
+    def setup_status(self, entity_list):
+        # dataclass_fields = list(self.__dataclass_fields__.keys())
+        # print(f"Fields --> {type(dataclass_fields[0])}")
+
+        if entity_list:
+            for entity in entity_list:
+                if entity in DYNAMIC_STATUS:
+                    self.status = entity 
+
+    
     def setup_context(self, entity_list):
         dataclass_fields = list(self.__dataclass_fields__.keys())
 
@@ -40,6 +39,8 @@ class Context:
             entity_name, entity_value = entity
             if entity_name in dataclass_fields:
                 setattr(self, entity_name, entity_value)
+        if self.username:
+            self.username = self.username.capitalize()
 
 
     def scan_context(self) -> list:

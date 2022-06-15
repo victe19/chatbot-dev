@@ -25,6 +25,24 @@ def greeting(query:str) -> float:
     return 0
 
 
+def cleverbot(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["que saps fer", "que pots fer", "que saps", "ets intl·ligent"]
+
+    if any(word in query for word in word_list):
+        return 90
+
+    return 0
+
+
 def confirm(query:str) -> float:
     """_summary_
 
@@ -172,7 +190,7 @@ def get_module_functions() -> list:
 
 def intent_extraction(query: str) -> str:
     confidences = []
-    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye]
+    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye, cleverbot]
 
     for intent in intent_list:
         confidence = intent(query)

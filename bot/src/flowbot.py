@@ -19,7 +19,7 @@ def message(query: str, context: Context())-> list:
     """
     print('----------------------------------------------------------------------------')
     print('Starting...')
-    # print(f'Query --> {query}')
+    print(f'Query --> {query}')
     query = utils.preprocess(query)    
     intent = intents.intent_extraction(query) 
     print(f'Intent captured is --> {intent}')
@@ -29,12 +29,12 @@ def message(query: str, context: Context())-> list:
     action, context = dialogue_manager.next_action(intent, entity_list, subentity_list, context)
     print(f'Context until now--> \n{context}')
     print(f'Next action will be --> {action}')
-    response = reply.generate(action, context)
-    # try:
-    #     response = reply.generate(action, context)
-    # except Exception as e:
-    #     response = "No he trobat el que em demanes!"
-    # print(f'Bot reply is --> {response}')
+    # response = reply.generate(action, context)
+    try:
+        response = reply.generate(action, context)
+    except Exception as e:
+        response = "No he trobat el que em demanes! \nM'ho pots tornar a demanar?"
+    print(f'Bot reply is --> {response}')
     print('Response send!')
     print('----------------------------------------------------------------------------')
 

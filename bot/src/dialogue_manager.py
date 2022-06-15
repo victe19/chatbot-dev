@@ -1,10 +1,11 @@
+from contextlib import ContextDecorator
 from bot.src.context import Context
 from typing import List
 
 def get_entity_name(entity_list: List) -> List[str]:
     return [entity for entity in entity_list]
 
-def setup_entities(entity_list: list, context: Context()) -> list:
+def setup_entities(entity_list: List, context: Context()) -> List:
     Context.setup_context(context, entity_list)
     entity_name_list =  []
     for entity in entity_list:
@@ -13,9 +14,12 @@ def setup_entities(entity_list: list, context: Context()) -> list:
     return entity_name_list
 
 
-def next_action(intent: str, entity_list: list, subentity_list:list, context: Context) -> list:
+def next_action(intent: str, entity_list: list, subentity_list:list, context: Context()) -> list:
     intent = intent[0] #TODO: only take first argument (name), not confidence
     entity_list = setup_entities(entity_list, context)
+    context.setup_status(entity_list)
+    print(f"Status --> {context.status}")
+
     action = 'no_understand'
 
     if 'username' in entity_list:
@@ -25,7 +29,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     # elif context.start == True:
     #     context = Context()
 
-    elif intent == 'greeting' and entity_list == []:
+    elif intent == 'greeting' and entity_list == [] and context.status == 'start':
         if entity_list == [] and context.username != None:
             action = 'ask_name'
         else:
@@ -51,14 +55,11 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         action = ""      
 
     elif intent == 'info' or intent == 'greeting' or intent == None:
-        if entity_list == []:
+        if entity_list == [] and subentity_list == []:
             action = 'ask_start'
-            context.status = 'info_more'
     
-        entity_names = get_entity_name(entity_list)
-
         #SCHEDULE
-        if "schedule" in entity_names or "degree" in entity_names or "course" in entity_names or "semester" in entity_names: 
+        if "schedule" == context.status:
             if context.degree != None and context.course != None and context.semester != None:
                 if context.degree == "informatica" and context.course == "3" and context.mention == None:  
                     action = "ask_mention"
@@ -73,7 +74,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         
 
         #EXAMS
-        elif "exams" in entity_names or "degree" in entity_names or "semester" in entity_names: 
+        elif "exams" == context.status: #or "degree" in entity_names or "semester" in entity_names: 
                 if context.degree != None and context.term != None and context.semester != None:
                     action = "exams"
                 elif context.degree == None:
@@ -85,7 +86,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         
     
         #TEACHING_GUIDE
-        elif "teaching_guide" in entity_names or "degree" in entity_names or "subject" in entity_names: 
+        elif "teaching_guide" == context.status: #or "degree" in entity_names or "subject" in entity_names: 
                 if context.degree != None and context.subject != None:
                     action = "teaching_guide"
                 elif context.degree is None:
@@ -95,7 +96,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
 
         #TFG
-        elif "tfg" in entity_names or context.tfg != None:
+        elif "tfg" == context.status:
             if subentity_list == []:
                 action = "ask_tfg"
             else:
@@ -103,7 +104,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
 
         #REGISTRATION
-        elif entity_list == "registration" or context.registration != None:
+        elif "registration" == context.status:
             if subentity_list == []:
                 action = "ask_registration"
             else:
@@ -111,7 +112,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
 
         #INTERNSHIP
-        elif entity_list == "internship" or context.internship != None:
+        elif "internship" == context.status:
             if subentity_list == []:
                 action = "ask_internship"
             else:
@@ -119,45 +120,45 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
 
         #ACADEMIC       
-        elif entity_list == "academic" or context.academic != None:
+        elif "academic"  == context.status:
             action = "academic"
         
 
         #EXCHANGE
-        elif "exchange" == entity_list or context.exchange != None:
+        elif "exchange" == context.status:
             action = "ask_exchange"
         
 
         #REGISTRATION
-        elif 'registration' == entity_list or context.registration != None:
+        elif 'registration'  == context.status:
             action = "ask_registration"
         
 
         #CALENDAR
-        elif 'calendar' == entity_list or context.calendar != None:
+        elif 'calendar' == context.status:
             action = "ask_calendar"
         
 
         #PERMANENCE
-        elif 'permanence' == entity_list or context.permanence != None:
+        elif 'permanence'  == context.status:
             action = "ask_permanence"
         
 
         #PROCEDURES
-        elif 'procedures' == entity_list or context.procedures != None:
+        elif 'procedures'  == context.status:
             action = "ask_procedures"
         
 
         #CREDIT_RECOGNITION
-        elif 'credit_recognition' == entity_list or context.credit_recognition != None:
+        elif 'credit_recognition' == context.status:
             action = "ask_credit_recognition"
 
 
         #COORDINATION
-        elif 'coordination' == entity_list or context.coordination != None:
+        elif 'coordination' == context.status:
             action = "ask_coordination"
              
-             
+
         #FLUX
         elif entity_list == []:
             if context.status == 'start':
@@ -165,10 +166,6 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if context.status == 'start_again':
                 action = 'ask_start_again'
 
-        
-
-
-        
 
     return [action, context]
 

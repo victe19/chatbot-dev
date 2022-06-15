@@ -21,7 +21,7 @@
     },
     "ask_degree": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar sobre quin grau?", "Quin curs {}?", "Puc saber el curs, siusplau"]
+        "answers": ["D'acord {}, em podries indicar sobre quin grau?", "Quin grau {}?", "Puc saber el grau, siusplau?"]
     },    
     "ask_course": {
         "id": 1.1,
@@ -73,7 +73,7 @@
     }, 
     "ask_internship": {
         "id": 1.1,
-        "answers": ["Estàs pensant de fer unes pràctiques. Quins dubtes tens {}?", "Quina informació necessites sobre les pràctiques {}."]
+        "answers": ["Estàs pensant de fer unes pràctiques. Quins dubtes tens {}?", "Quina informació necessites sobre les pràctiques {}?"]
     },    
     "ask_exchange": {
         "id": 1.1,

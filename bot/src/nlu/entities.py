@@ -17,7 +17,7 @@ professor_regex = ""
 semester_regex = "(?:((primer|1er|1r?)|(segon|2n|2n?)) (?:semestre|quatrimestre|periode))" #done 
 term_regex = "(parcials|finals)" #done
 year_regex = "(?:(aquest )?(?:any )(\\d{2|)?(que ve|següent)?(?: any)?)" #done
-username_regex = "(?:(?:soc|soc)(?: el )?|el meu nom (?:es |es )|em dic )([^|\s]*)" #done
+username_regex = "(?:(?:soc|soc)(?: el| en)?|el meu nom (?:es |es )|em dic )([^|\s]*)" #done
 
 
 entities_dict = {
@@ -45,12 +45,12 @@ sub_entities_dict = {
         'tfg_description': ['que es el tfg', 'per que serveix'], 
         'tfg_group': ['grup', 'companys', 'gent', "mes d'un"],
         'tfg_company': ['empresa', "proposta d'empresa"],
-        'tfg_matriculation': ['matricula', 'inscripcio'],
-        'tfg_proposals': ['propostes professors'],
+        'tfg_matriculation': ['matricula', 'inscripcio', 'matricular-me'],
+        'tfg_proposals': ['propostes' 'propostes professors'],
         'tfg_autoproposal': ['meva proposta'],
         'tfg_manyproposals': ['quantes propostes'],
         'tfg_professor': ['docent', 'tutor', 'professor', 'professora'],
-        'tfg_changeproposal': ['canvi de proposta', ''],
+        'tfg_changeproposal': ['canvi de proposta'],
         'tfg_calendar': ['temps', 'setmanes', 'calendari', 'dates'],
         'tfg_deadline': ['termini', 'final', 'entrega'],
         'tfg_tool': ['aplicacio', 'eina'],
@@ -162,6 +162,7 @@ def _entity_term(query: str) -> str:
         return [function_name, term]
     return None
 
+
 def _entity_language(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
     m = re.search(language_regex, query)
@@ -203,6 +204,7 @@ def _entity_language(query: str) -> str:
 
 def _entity_username(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
+    username = 'Goffy'
     m = re.search(username_regex, query)
 
     if m:
