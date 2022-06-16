@@ -29,11 +29,14 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     # elif context.start == True:
     #     context = Context()
 
-    elif intent == 'greeting' and entity_list == [] and context.status == 'start':
-        if entity_list == [] and context.username != None:
-            action = 'ask_name'
+    elif entity_list == [] and subentity_list == []:
+        if intent == 'greeting':
+            if entity_list == [] and context.username != None:
+                action = 'ask_name'
+            else:
+                action = 'hello'
         else:
-            action = 'hello'
+            action = 'ask_start'
 
     elif intent == 'goodbye':
         if entity_list == []:

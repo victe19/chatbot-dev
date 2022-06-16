@@ -33,7 +33,8 @@ def message(query: str, context: Context())-> list:
     try:
         response = reply.generate(action, context)
     except Exception as e:
-        response = "No he trobat el que em demanes! \nM'ho pots tornar a demanar?"
+        response = "No he trobat el que em demanes. M'ho pots tornar a demanar?"
+        # context.reset()
     print(f'Bot reply is --> {response}')
     print('Response send!')
     print('----------------------------------------------------------------------------')

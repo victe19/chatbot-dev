@@ -13,11 +13,11 @@
     },    
     "ask_start": {
         "id": 1.1,
-        "answers": ["Em podries indicar en què et puc ajudar?", "En què et puc ajudar {}?", "Què necessites {} ?"]
+        "answers": ["Em podries indicar en què et puc ajudar?", "En què et puc ajudar {}?", "Què necessites {}?", "Tens preguntes per mi?", "Què necessites {}?"]
     },
     "ask_start_again": {
         "id": 1.1,
-        "answers": ["En que més et puc ajudar?", "Et puc ajudar en alguna cosa més?"]
+        "answers": ["En que més et puc ajudar?", "Et puc ajudar en alguna cosa més?", "Vull ajudar-te en alguna cosa més. Pregunta'm!", "He resolt tots els teus dubtes?"]
     },
     "ask_degree": {
         "id": 1.1,
