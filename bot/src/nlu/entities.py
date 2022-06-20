@@ -72,12 +72,36 @@ sub_entities_dict = {
         'internship_moreinfo': ['informacio', 'mes'],
     },
     'registration': {
-        "registration_link": ["enllaç", "pagina", "link"],
-        "registration_steps": ["pasos", "seguir"],
-        "registration_date": ["dates"],
-        "registration_documentation": ["documentacio", "papers"],
+        "registration_link": ["enllaç", "pagina", "link", "pagines"],
+        "registration_steps": ["pasos", "seguir", "pas"],
+        "registration_date": ["dates", "data", "termini", "terminis", "calendari"],
+        "registration_documentation": ["documentacio", "papers", "tramits"],
         "registration_payment": ["pagament", "diners", "pago", "pagar"],
-        "registration_faqs": ["dubtes"]
+        "registration_faqs": ["dubtes", "dubte"]
+    },
+    'exchange': {
+        "exchange_link": ["enllaç", "pagina", "link", "pagines"],
+        "exchange_destinations": ["destinacions", "destinacio", "lloc", "llocs"],
+        "exchange_erasmus": ["erasmus"],
+        "exchange_exchange": ["exchange"],
+        "exchange_sicue": ["sicue"],
+        "exchange_info": ["informacio"],
+        "exchange_calendar": ["dates", "data", "termini", "terminis", "calendari"],
+        "exchange_documentation": ["documentacio", "papers", "tramits"],
+        "exchange_language_valoration": ["llengues", "llenguatges", "idiomes"]
+    },
+    'permanence': {
+        "permanence_link": ["enllaç", "pagina", "link", "pagines"],
+        "permanence_steps": ["pasos", "seguir"],
+        "permanence_date": ["dates", "data", "termini", "terminis", "calendari"],
+        "permanence_documentation": ["documentacio", "papers", "tramits"],
+        "permanence_faqs": ["faqs", "preguntes"],
+        "permanence_payment": ["dubtes"] 
+    },
+    'credit_recognition': {
+        "credit_recognition_link": ["enllaç", "pagina", "link", "pagines", "dubtes", "dubte", "pregunta"],
+        "credit_recognition_requirements": ["seguir", "condicions", "condició", "requeriments"],
+        "credit_recognition_request": ["pasos", "peticio", "demanar", "com"]
     }
 }
 
@@ -249,14 +273,15 @@ def _entity(query: str) -> list:
     return entities_found #TODO: sorted list
 
 
-def _sub_entity(query: list, entity:str) -> list:
+def _sub_entity(query: list) -> list:
     sub_entities_found = []
     query = utils.preprocess(query)    
     query = utils.query_to_list(query)
 
-    for sub_entity in sub_entities_dict[entity]:
-        if any(word in query for word in sub_entities_dict[entity][sub_entity]):
-            sub_entities_found.append([sub_entity, True])  
+    for entity in sub_entities_dict:
+        for sub_entity in sub_entities_dict[entity]:
+            if any(word in query for word in sub_entities_dict[entity][sub_entity]):
+                sub_entities_found.append([sub_entity, True])  
 
     return sub_entities_found #TODO: sorted list
 
@@ -281,7 +306,7 @@ def entities_extraction(query: str) -> list:
         if entity != None:
             entities_list.append(entity)
 
-    sub_entities_list = _sub_entity(query, 'tfg') #TODO
+    sub_entities_list = _sub_entity(query) #TODO
 
     return entities_list, sub_entities_list #TODO: sorted list
 

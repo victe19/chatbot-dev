@@ -5,6 +5,12 @@ from typing import List
 def get_entity_name(entity_list: List) -> List[str]:
     return [entity for entity in entity_list]
 
+
+def get_status_subentity(sub_entities: List, status: str):
+    status_subentity = [sub_entity for sub_entity in sub_entities if status in sub_entity[0]]
+    return status_subentity[0]
+
+
 def setup_entities(entity_list: List, context: Context()) -> List:
     Context.setup_context(context, entity_list)
     entity_name_list =  []
@@ -26,38 +32,35 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         action = 'hello'
     elif 'language' in entity_list:
         action = 'change_language'
-    # elif context.start == True:
-    #     context = Context()
-
+    
     elif entity_list == [] and subentity_list == []:
         if intent == 'greeting':
-            if entity_list == [] and context.username != None:
+            if context.username != None:
                 action = 'ask_name'
             else:
                 action = 'hello'
-        else:
-            action = 'ask_start'
 
-    elif intent == 'goodbye':
-        if entity_list == []:
+        elif intent == 'goodbye':         
             action = 'goodbye'
             context.adeu = True
-    
-    elif intent == 'bot':
-        if entity_list == []:
+
+        elif intent == 'bot':
             action = 'im_bot'
-    
-    elif intent == 'operator':
-        if entity_list == []:
+        
+        elif intent == 'operator':
             action = 'need_operator'
 
-    elif intent == 'confirm':
-        action = ""
-    
-    elif intent == 'reject':
-        action = ""      
+        elif intent == 'confirm':
+            action = ""
+        
+        elif intent == 'reject':
+            action = ""      
 
-    elif intent == 'info' or intent == 'greeting' or intent == None:
+        else:
+            action = 'ask_start_again'
+
+
+    elif intent == 'info' or intent == None:
         if entity_list == [] and subentity_list == []:
             action = 'ask_start'
     
@@ -103,7 +106,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_tfg"
             else:
-                action = subentity_list[0][0]
+                action = get_status_subentity(subentity_list, context.status)[0]
 
 
         #REGISTRATION
@@ -111,7 +114,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_registration"
             else:
-                action = subentity_list[0][0]
+                action = get_status_subentity(subentity_list, context.status)[0]
 
 
         #INTERNSHIP
@@ -119,7 +122,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_internship"
             else:
-                action = subentity_list[0][0]
+                action = get_status_subentity(subentity_list, context.status)[0]
 
 
         #ACADEMIC       
@@ -129,12 +132,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
         #EXCHANGE
         elif "exchange" == context.status:
-            action = "ask_exchange"
-        
-
-        #REGISTRATION
-        elif 'registration'  == context.status:
-            action = "ask_registration"
+            if subentity_list == []:
+                action = "ask_exchange"
+            else:
+                action = get_status_subentity(subentity_list, context.status)[0]
         
 
         #CALENDAR
@@ -144,7 +145,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
         #PERMANENCE
         elif 'permanence'  == context.status:
-            action = "ask_permanence"
+            if subentity_list == []:
+                action = "ask_permanence"
+            else:
+                action = get_status_subentity(subentity_list, context.status)[0]
         
 
         #PROCEDURES
@@ -154,7 +158,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
 
         #CREDIT_RECOGNITION
         elif 'credit_recognition' == context.status:
-            action = "ask_credit_recognition"
+            if subentity_list == []:
+                action = "ask_credit_recognition"
+            else:
+                action = get_status_subentity(subentity_list, context.status)[0]
 
 
         #COORDINATION
@@ -162,12 +169,12 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             action = "ask_coordination"
              
 
-        #FLUX
-        elif entity_list == []:
-            if context.status == 'start':
-                action = 'ask_start'
-            if context.status == 'start_again':
-                action = 'ask_start_again'
+        # #FLUX
+        # elif entity_list == []:
+        #     if context.status == 'start':
+        #         action = 'ask_start'
+        #     if context.status == 'start_again':
+        #         action = 'ask_start_again'
 
 
     return [action, context]

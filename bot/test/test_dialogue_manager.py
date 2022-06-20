@@ -73,3 +73,18 @@ def test_get_entity_name():
 
     assert result_names == expect_names
 
+def test_get_status_subentity():
+    
+    subentity_list = [
+            ['tfg_duration', True],
+            ['internship_description', True],
+            ['registration_link', True],
+            ['registration_documentation', True],
+            ['tfg_deadline', True],
+        ]
+    
+    name = 'tfg'
+    expected_name = [['tfg_duration', True], ['tfg_deadline', True]]
+    subentity_name = dialogue_manager.get_status_subentity(subentity_list, name)
+
+    assert subentity_name == expected_name

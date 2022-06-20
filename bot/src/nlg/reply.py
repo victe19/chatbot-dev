@@ -33,14 +33,43 @@ def get_degree_exams(degree, semester, term):
 
     return subject_dict['exams'][semester][term]
 
-
 def get_tfg_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
 
     with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
-    return subject_dict['treball final de grau'][sub_entity_list]
+    return subject_dict['tfg'][sub_entity_list]
+
+def get_registration_info(sub_entity_list):
+    # subject_dict = get_from_db('degrees', degree)
+
+    with open("bot/data/general.json") as f:
+        subject_dict = json.load(f)
+
+    return subject_dict['registration'][sub_entity_list]
+
+def get_exchange_info(sub_entity_list):
+    # subject_dict = get_from_db('degrees', degree)
+
+    with open("bot/data/general.json") as f:
+        subject_dict = json.load(f)
+
+    return subject_dict['exchange'][sub_entity_list]
+
+def get_permanence_info(sub_entity_list):
+    # subject_dict = get_from_db('degrees', degree)
+
+    with open("bot/data/general.json") as f:
+        subject_dict = json.load(f)
+
+    return subject_dict['permanence'][sub_entity_list]
+
+def get_credit_recognition_info(sub_entity_list):
+    with open("bot/data/general.json") as f:
+        subject_dict = json.load(f)
+    
+    return subject_dict['credit_recognition'][sub_entity_list]
 
 
 def get_internship_info(sub_entity_list):
@@ -86,9 +115,25 @@ def generate(action: str, context: Context) -> str:
         dynamic_info = get_tfg_info(action)
         action = 'nothing'
     
+    elif 'registration' in action and action != 'ask_registration':
+        dynamic_info = get_registration_info(action)
+        action = 'nothing'
+    
     elif 'internship' in action and action != 'ask_internship':
         dynamic_info = get_internship_info(action)
         action = 'nothing'
+    
+    elif 'permanence' in action and action != 'ask_permanence':
+        dynamic_info = get_permanence_info(action)
+        action = 'nothing'
+
+    elif 'credit_recognition' in action and action != 'ask_credit_recognition':
+        dynamic_info = get_credit_recognition_info(action)
+        action = 'nothing'
+
+    elif 'exchange' in action and action != 'ask_exchange':
+            dynamic_info = get_exchange_info(action)
+            action = 'nothing'
     
     responses_language = 'responses_' + context.language
 
