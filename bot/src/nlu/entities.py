@@ -46,7 +46,7 @@ sub_entities_dict = {
         'tfg_group': ['grup', 'companys', 'gent', "mes d'un"],
         'tfg_company': ['empresa', "proposta d'empresa"],
         'tfg_matriculation': ['matricula', 'inscripcio', 'matricular-me'],
-        'tfg_proposals': ['propostes' 'propostes professors'],
+        'tfg_proposals': ['propostes', 'propostes professors'],
         'tfg_autoproposal': ['meva proposta'],
         'tfg_manyproposals': ['quantes propostes'],
         'tfg_professor': ['docent', 'tutor', 'professor', 'professora'],
@@ -58,14 +58,15 @@ sub_entities_dict = {
         'tfg_deliveries': ['entregues', 'seguiment'],
         'tfg_final_delivery': ['lliurament final', 'entrega final'],
         'tfg_avaluation': ['avaluacio', 'avaluacio', 'nota'],
-        'tfg_minimumgrade': ['nota minima', 'minima nota'], 
+        'tfg_minimumgrade': ['nota minima', 'minima nota'],
+        'tfg_faqs': ['dubtes', 'dubte', 'faqs'] 
     },    
     'internship' : {
         'internship_description': ['que es', 'que es'],
         'internship_hours': ['hores', 'quantes'],
         'internship_period': ['quant', 'quan'],
         'internship_whenstart': ['quan es comença', 'començament', 'inici'],
-        'internship_steps': ['fases', 'seguiment', 'passos', 'pasos'],
+        'internship_steps': ['fases', 'seguiment', 'passos', 'passos'],
         'internship_maxhours': ['maxim', 'maximes'],
         'internship_salary': ['remunerades', 'remuneracio', 'cobrar', 'diners'],
         'internship_aboard': ['a fora', 'exterior', 'pais', 'extranger'],
@@ -73,7 +74,7 @@ sub_entities_dict = {
     },
     'registration': {
         "registration_link": ["enllaç", "pagina", "link", "pagines"],
-        "registration_steps": ["pasos", "seguir", "pas"],
+        "registration_steps": ["passos", "seguir", "pas", "que he de fer"],
         "registration_date": ["dates", "data", "termini", "terminis", "calendari"],
         "registration_documentation": ["documentacio", "papers", "tramits"],
         "registration_payment": ["pagament", "diners", "pago", "pagar"],
@@ -92,7 +93,7 @@ sub_entities_dict = {
     },
     'permanence': {
         "permanence_link": ["enllaç", "pagina", "link", "pagines"],
-        "permanence_steps": ["pasos", "seguir"],
+        "permanence_steps": ["passos", "seguir"],
         "permanence_date": ["dates", "data", "termini", "terminis", "calendari"],
         "permanence_documentation": ["documentacio", "papers", "tramits"],
         "permanence_faqs": ["faqs", "preguntes"],
@@ -101,7 +102,7 @@ sub_entities_dict = {
     'credit_recognition': {
         "credit_recognition_link": ["enllaç", "pagina", "link", "pagines", "dubtes", "dubte", "pregunta"],
         "credit_recognition_requirements": ["seguir", "condicions", "condició", "requeriments"],
-        "credit_recognition_request": ["pasos", "peticio", "demanar", "com"]
+        "credit_recognition_request": ["passos", "peticio", "demanar"]
     }
 }
 
@@ -266,10 +267,19 @@ def _entity(query: str) -> list:
     query = utils.preprocess(query)    
     query = utils.query_to_list(query)
 
-    for entity in entities_dict:
-        if any(word in query for word in entities_dict[entity]):
-            entities_found.append([entity, True])  
+    # ['regim de permanencia', 'permanencia', "fer fora"],
 
+    for entity in entities_dict:
+        for word in entities_dict[entity]:
+
+            if " " in word:
+                if all(split_words in query for split_words in word.split()):
+                    entities_found.append([entity, True]) 
+        if entities_found == []:
+
+            if any(word in query for word in entities_dict[entity]):
+                entities_found.append([entity, True]) 
+        
     return entities_found #TODO: sorted list
 
 
@@ -280,6 +290,12 @@ def _sub_entity(query: list) -> list:
 
     for entity in sub_entities_dict:
         for sub_entity in sub_entities_dict[entity]:
+            for word in sub_entities_dict[entity][sub_entity]:
+                if " " in word:
+                    if all(split_words in query for split_words in word.split()):
+                        sub_entities_found.append([sub_entity, True]) 
+        if sub_entities_found == []:
+
             if any(word in query for word in sub_entities_dict[entity][sub_entity]):
                 sub_entities_found.append([sub_entity, True])  
 

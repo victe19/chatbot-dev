@@ -111,6 +111,22 @@
         "id": 1.1,
         "answers": ["Ho sento {}, no t'he entès. Podríes repetir?", "No he pogut entendre l'últim que m'has dit. M'ho pots repetir?", "Ho sento, no t'entenc.", "Pots repetir, {}?"]
     },
+    "ask_operations": {
+        "id": 1.1,
+        "answers": ["Et vull ajudar en el que necessitis. Et puc aconseguir els horaris de les classes i dels exàmens dels graus de l'escola, enllaç directe a les guies docents, i puc resoldre't dubtes sobre la matricula, el règim de permanència, el tfg, les pràctiques externes o el programa de mobilitat de la UAB entre d'altres."]
+    },
+    "assertive_response": {
+        "id": 1.1,
+        "answers": ["No m'agrada que m'insultis. Si ho fas no et podre ajudar", "Necessites ajuda o només vols desfogar-te?"]
+    },
+    "ask_help": {
+        "id": 1.1,
+        "answers": ["Prova d'introduir frases curtes amb peticions simples del estil - vull la guia docent d'àlgebra - o - em pots dir quins són el terminis d'entrega del tfg - o - quina és la duració de les pràctiques curriculars-.  El bot funciona amb un tema principal (exàmens, matrícula, tfg, pràctiques, etc) i un context (grau, curs, semestre, menció) de manera que cada cop que el tema principal canvia, és reinicia el context."]
+    },    
+    "im_fine": {
+        "id": 1.1,
+        "answers": ["Estic genial, gràcies per preguntar, fa temps que no m'ho preguntaven. Necessites alguna cosa?", "Estic molt bé. I tu? Et puc ajudar en alguna cosa?"]
+    },
     "nothing": {
         "id": 1.1,
         "answers": [""]

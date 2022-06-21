@@ -1,6 +1,8 @@
 from contextlib import ContextDecorator
 from bot.src.context import Context
 from typing import List
+from colorama import Fore
+
 
 def get_entity_name(entity_list: List) -> List[str]:
     return [entity for entity in entity_list]
@@ -8,6 +10,7 @@ def get_entity_name(entity_list: List) -> List[str]:
 
 def get_status_subentity(sub_entities: List, status: str):
     status_subentity = [sub_entity for sub_entity in sub_entities if status in sub_entity[0]]
+    print(f"Cleaned sub_entity {status_subentity}")
     return status_subentity[0]
 
 
@@ -24,7 +27,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     intent = intent[0] #TODO: only take first argument (name), not confidence
     entity_list = setup_entities(entity_list, context)
     context.setup_status(entity_list)
-    print(f"Status --> {context.status}")
+    print(f"{Fore.CYAN}Status --> {Fore.WHITE} {context.status}")
 
     action = 'no_understand'
 
@@ -49,6 +52,18 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         
         elif intent == 'operator':
             action = 'need_operator'
+        
+        elif intent == 'cleverbot':
+            action = 'ask_operations'
+
+        elif intent == 'insults':
+            action = 'assertive_response'
+        
+        elif intent == 'help':
+            action = 'ask_help'
+        
+        elif intent == 'how_are_you':
+            action = 'im_fine'
 
         elif intent == 'confirm':
             action = ""
@@ -106,7 +121,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_tfg"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'tfg_link'
 
 
         #REGISTRATION
@@ -114,7 +132,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_registration"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'registration_link'
 
 
         #INTERNSHIP
@@ -122,8 +143,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_internship"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
-
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'internship_link'
 
         #ACADEMIC       
         elif "academic"  == context.status:
@@ -135,7 +158,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_exchange"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'exchange_link'
         
 
         #CALENDAR
@@ -148,7 +174,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_permanence"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'permanence_link'
         
 
         #PROCEDURES
@@ -161,7 +190,10 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             if subentity_list == []:
                 action = "ask_credit_recognition"
             else:
-                action = get_status_subentity(subentity_list, context.status)[0]
+                try:
+                    action = get_status_subentity(subentity_list, context.status)[0]
+                except Exception as e:
+                    action = 'credit_recognition_link'
 
 
         #COORDINATION

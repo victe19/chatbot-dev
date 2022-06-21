@@ -23,8 +23,6 @@ class Context:
 
 
     def setup_status(self, entity_list):
-        # dataclass_fields = list(self.__dataclass_fields__.keys())
-        # print(f"Fields --> {type(dataclass_fields[0])}")
 
         if entity_list:
             for entity in entity_list:
@@ -53,9 +51,7 @@ class Context:
 
 
     def clean_context(self, context_list):
-        print(f"Cleaning Context for {context_list} . . . ")
         for name in context_list:
-            print(name)
             self.name = None
         return self
         

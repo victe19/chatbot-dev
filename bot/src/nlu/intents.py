@@ -35,8 +35,82 @@ def cleverbot(query:str) -> float:
         confidence (float): probability that this query belongs to the intent greet
     """    
     query = utils.query_to_list(query)
-    word_list = ["que saps fer", "que pots fer", "que saps", "ets intl·ligent"]
+    word_list = ["que saps fer", "que pots fer", "que saps", "ets intl·ligent", "que et puc demanar", "que fas"]
 
+    for word in word_list:
+        if " " in word:
+            if all(split_words in query for split_words in word.split()):
+                return 90
+    
+    if any(word in query for word in word_list):
+        return 90
+
+    return 0
+
+
+def insults(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["gilipollas", "tonto", "retrassat", "fill de puta", "cabrón", "idiota"]
+
+    for word in word_list:
+        if " " in word:
+            if all(split_words in query for split_words in word.split()):
+                return 90
+    
+    if any(word in query for word in word_list):
+        return 90
+
+    return 0
+
+
+def help(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["no se utilitzar", "ajuda", "no se utilitzar-te", "com t'utilitzo", "com ho faig", "com et puc utilitzar", "help", "com funciona", "com funciones"]
+
+    for word in word_list:
+        if " " in word:
+            if all(split_words in query for split_words in word.split()):
+                return 90
+    
+    if any(word in query for word in word_list):
+        return 90
+
+    return 0
+
+
+def how_are_you(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["com estas"]
+
+    for word in word_list:
+        if " " in word:
+            if all(split_words in query for split_words in word.split()):
+                return 90
+    
     if any(word in query for word in word_list):
         return 90
 
@@ -123,6 +197,7 @@ def bot(query:str) -> float:
     query = utils.query_to_list(query)
     word_list = ["bot", "assistent", "robot"]
 
+    
     if any(word in query for word in word_list):
         return 90 
     
@@ -190,7 +265,7 @@ def get_module_functions() -> list:
 
 def intent_extraction(query: str) -> str:
     confidences = []
-    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye, cleverbot]
+    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye, cleverbot, insults, help, how_are_you]
 
     for intent in intent_list:
         confidence = intent(query)

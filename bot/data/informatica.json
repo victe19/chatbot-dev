@@ -428,7 +428,7 @@
             "code": "106542",
             "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/106542/ca"
         },
-        "Optatives": {
+        "optatives": {
             "Practiques Externes": {
                 "code": "106541",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/106541/ca",
@@ -463,43 +463,43 @@
                     }
                 }
             },
-            "Angles Professional I": {
+            "angles professional 1": {
                 "code": "102762",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/102762/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Angles Professional II": {
+            "angles professional 2": {
                 "code": "102761",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/102761/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Tendencies Actuals": {
+            "tendencies actuals": {
                 "code": "102770",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/102770/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Aplicacions de la Teoria de Codis": {
+            "aplicacions de la teoria de codis": {
                 "code": "105074",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/105074/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Internet de les Coses": {
+            "internet de les coses": {
                 "code": "105075",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/105075/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Tecnologia Blockchain i Criptomonedes": {
+            "tecnologia blockchain i criptomonedes": {
                 "code": "105072",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/105072/ca",
                 "professors": [],
                 "course":"4"
             },
-            "Tecnologies de Compressio de la Informacio": {
+            "tecnologies de compressio de la informacio": {
                 "code": "105073",
                 "teaching_guide": "https://guies.uab.cat/guies_docents/public/portal/html/2021/assignatura/105073/ca",
                 "professors": [],
