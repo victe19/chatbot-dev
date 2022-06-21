@@ -35,8 +35,8 @@
 
     "exams": {
         "1": {
-            "parcials": "https://www.uab.cat/doc/Examens_parcials_EQ_1r_semestre",
-            "finals": "https://www.uab.cat/doc/Grau_EQ_1r_semestre"
+            "parcials": "http://www.uab.cat/doc/Parcials_Grau_Telecom_GEST_i_GEET",
+            "finals": "http://www.uab.cat/doc/Examens_Grau_EST_1r_semestre"
         },
         "2": {
             "parcials": "https://www.uab.cat/doc/Examens_GEQ_2sem_parcials",

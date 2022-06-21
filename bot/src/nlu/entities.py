@@ -40,24 +40,25 @@ entities_dict = {
 
 sub_entities_dict = {
     'tfg': {
-        'tfg_aim': ['objectiu'],
-        'tfg_duration': ['duracio', 'duracio', 'durada'],
+        'tfg_aim': ['objectiu', 'finalitat'],
+        'tfg_duration': ['duracio', 'duracio', 'durada', 'temps per fer'],
         'tfg_description': ['que es el tfg', 'per que serveix'], 
-        'tfg_group': ['grup', 'companys', 'gent', "mes d'un"],
-        'tfg_company': ['empresa', "proposta d'empresa"],
-        'tfg_matriculation': ['matricula', 'inscripcio', 'matricular-me'],
-        'tfg_proposals': ['propostes', 'propostes professors'],
-        'tfg_autoproposal': ['meva proposta'],
-        'tfg_manyproposals': ['quantes propostes'],
-        'tfg_professor': ['docent', 'tutor', 'professor', 'professora'],
-        'tfg_changeproposal': ['canvi de proposta'],
-        'tfg_calendar': ['temps', 'setmanes', 'calendari', 'dates'],
-        'tfg_deadline': ['termini', 'final', 'entrega'],
-        'tfg_tool': ['aplicacio', 'eina'],
-        'tfg_steps': ['fases', 'passos'],
-        'tfg_deliveries': ['entregues', 'seguiment'],
+        'tfg_group': ['companys', 'gent', "mes d'un", 'cooperatiu', 'en grup'],
+        'tfg_company': ['fer amb empresa', "propostes d'empresa", "proposta d'empresa", 'on treballo', 'practiques'],
+        'tfg_matriculation': ['matricula', 'inscripcio', 'matricular-me', 'matricules', 'matricular'],
+        'tfg_proposals': ['propostes', 'propostes professors', 'proposta', 'ofertes'],
+        'tfg_autoproposal': ['meva proposta', 'idea meva', 'proposta meva', 'puc fer una proposta', 'puc proposar'],
+        'tfg_manyproposals': ['quantes propostes', 'triar', 'propostes maximes'],
+        'tfg_professor': ['docent', 'tutor', 'professor', 'professora', 'el que em porta', 'tutoria'],
+        'tfg_changeproposal': ['canvi de proposta', 'canvi proposta inicial'],
+        'tfg_calendar': ['setmanes', 'calendari', 'dates', 'data', 'roadmap', 'temps'],
+        'tfg_deadline': ['termini', 'entrega final', "quan s'entrega"],
+        'tfg_tool': ['aplicacio', 'eina', 'app'],
+        'tfg_steps': ['fases', 'passos', 'desenvolupament'],
+        'tfg_deliveries': ['entregues', 'seguiment', 'informes', 'com es lliuren', 'com puc lliurar-los'],
         'tfg_final_delivery': ['lliurament final', 'entrega final'],
-        'tfg_avaluation': ['avaluacio', 'avaluacio', 'nota'],
+        'tfg_avaluation': ['avaluacio', 'avaluacio', 'nota final', 'nota tfg', 'evaluar', "s'evalua", 'avaluar' ],
+        'tfg_delivery_grade': ['nota informes', 'nota entregues', 'nota seguiment'],
         'tfg_minimumgrade': ['nota minima', 'minima nota'],
         'tfg_faqs': ['dubtes', 'dubte', 'faqs'] 
     },    
@@ -70,7 +71,7 @@ sub_entities_dict = {
         'internship_maxhours': ['maxim', 'maximes'],
         'internship_salary': ['remunerades', 'remuneracio', 'cobrar', 'diners'],
         'internship_aboard': ['a fora', 'exterior', 'pais', 'extranger'],
-        'internship_moreinfo': ['informacio', 'mes'],
+        'internship_moreinfo': ['informacio'],
     },
     'registration': {
         "registration_link": ["enllaç", "pagina", "link", "pagines"],
@@ -78,10 +79,10 @@ sub_entities_dict = {
         "registration_date": ["dates", "data", "termini", "terminis", "calendari"],
         "registration_documentation": ["documentacio", "papers", "tramits"],
         "registration_payment": ["pagament", "diners", "pago", "pagar"],
-        "registration_faqs": ["dubtes", "dubte"]
+        "registration_faqs": ["dubtes", "dubte", "preguntes"]
     },
     'exchange': {
-        "exchange_link": ["enllaç", "pagina", "link", "pagines"],
+        "exchange_link": ["enllaç", "pagina", "link", "pagines", 'web'],
         "exchange_destinations": ["destinacions", "destinacio", "lloc", "llocs"],
         "exchange_erasmus": ["erasmus"],
         "exchange_exchange": ["exchange"],
@@ -93,11 +94,8 @@ sub_entities_dict = {
     },
     'permanence': {
         "permanence_link": ["enllaç", "pagina", "link", "pagines"],
-        "permanence_steps": ["passos", "seguir"],
-        "permanence_date": ["dates", "data", "termini", "terminis", "calendari"],
-        "permanence_documentation": ["documentacio", "papers", "tramits"],
-        "permanence_faqs": ["faqs", "preguntes"],
-        "permanence_payment": ["dubtes"] 
+        "permanence_documentation": ["documentacio", "normativa", "document"],
+        "permanence_faqs": ["faqs", "preguntes", "pregunta", 'dubte', 'dubtes'],
     },
     'credit_recognition': {
         "credit_recognition_link": ["enllaç", "pagina", "link", "pagines", "dubtes", "dubte", "pregunta"],
@@ -294,10 +292,9 @@ def _sub_entity(query: list) -> list:
                 if " " in word:
                     if all(split_words in query for split_words in word.split()):
                         sub_entities_found.append([sub_entity, True]) 
-        if sub_entities_found == []:
-
-            if any(word in query for word in sub_entities_dict[entity][sub_entity]):
-                sub_entities_found.append([sub_entity, True])  
+            if sub_entities_found == []:
+                if any(word in query for word in sub_entities_dict[entity][sub_entity]):
+                    sub_entities_found.append([sub_entity, True])  
 
     return sub_entities_found #TODO: sorted list
 
