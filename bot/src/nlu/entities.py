@@ -5,19 +5,15 @@ from datetime import date
 import bot.src.utils.utils as utils
 import dialogue_manager as dm
 
-degree_core_regex = "(?: ?(dades|(?:sistemes|electronica) de telecomunicacio|telecos|informatica|info |quimica|gestio aeronautica))" #done
+degree_core_regex = "(aeronautica|dades|electronica|artificial|informatica|quimica|ciutats|telecomunicacions|telecos)" #done
 degree_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degree_core_regex #done
 course_regex = "((?:primer|segon|tercer|quart)|[1-4](?:r|n|t)?)(?: curs| any)" #done
-departaments_regex = "(departament)( de |d')?(ciencies de la computacio|enginyeria electronica|arquitectura)"
-subject_regexx = "(?:(?:assignatura |materia )(?:de |d')?((?:[^,.\\s]*)(?:(?: de | dels? | i | d'| |, )(?:[^,.\\s]*))?))" #50%
 subject_regex = "(algebra|calcul|electricitat i electronica|fonaments dels computadors|fonaments d'informatica|matematica discreta|metodologia de la programacio|organitzacio i gestio d'empreses|fonaments d'enginyeria|estadistica|arquitectura de computadors|bases de dades|enginyeria del software|estructura de computadors|informacio i seguretat|intel·ligencia artificial|laboratori de programacio|sistemes operatius|xarxes|disseny de software|requisits del software|gestio i administracio de bases de dades|test i qualitat del software|gestio del desenvolupament del software|models de qualitat en la gestio de les tic|arquitectura i tecnologies de software|laboratori integrat de software|analisi i disseny d'algorismes|coneixement raonament i incertesa|aprenentatge computacional|visualitzacio grafica interactiva|compiladors|visio per computador|robotica, lenguatge i planificacio|sistemes multimedia|fonaments de tecnologia de la informacio|sistemes d'informacio|sistemes distribuïts|disseny del software|infraestructura i tecnologia de xarxes|tecnologies avançades dinternet|sistemes i tecnologies web|garantia de la informacio i seguretat|sistemes encastats|gestio i administracio de xarxes|arquitectures avançades|microprocessadors i periferics|computacio d'altes prestacions|integracio hardware software|prototipatge de sistemes encastats|gestio de projectes)"
 
 language_regex = "(?:(catala| ?cat ?)|(castella|castellano|español| ?esp ?)|(angles|english| ?eng ))" #50%
 mention_regex = "(?:(?:mencio)?(?: en | de )?(?:enginyeria del? |tecnologies de la )?(computacio|software|computadors|informacio))" #done
-professor_regex = ""
 semester_regex = "(?:((primer|1er|1r?)|(segon|2n|2n?)) (?:semestre|quatrimestre|periode))" #done 
 term_regex = "(parcials|finals)" #done
-year_regex = "(?:(aquest )?(?:any )(\\d{2|)?(que ve|següent)?(?: any)?)" #done
 username_regex = "(?:(?:soc|soc)(?: el| en)?|el meu nom (?:es |es )|em dic )([^|\s]*)" #done
 
 
@@ -40,7 +36,7 @@ entities_dict = {
 sub_entities_dict = {
     'tfg': {
         'tfg_aim': ['objectiu', 'finalitat'],
-        'tfg_duration': ['duracio', 'duracio', 'durada', 'temps per fer'],
+        'tfg_duration': ['duracio', 'duracio', 'durada', 'dura', 'temps per fer'],
         'tfg_description': ['que es el tfg', 'per que serveix'], 
         'tfg_group': ['companys', 'gent', "mes d'un", 'cooperatiu', 'en grup'],
         'tfg_company': ['fer amb empresa', "propostes d'empresa", "proposta d'empresa", 'on treballo', 'practiques'],
@@ -62,15 +58,19 @@ sub_entities_dict = {
         'tfg_faqs': ['dubtes', 'dubte', 'faqs'] 
     },    
     'internship' : {
-        'internship_description': ['que es', 'que es'],
-        'internship_hours': ['hores', 'quantes'],
+        'intership_link': ['enllaç'],
+        'internship_description': ['que es', 'que es', 'que es fa', "que s'ha de fer", "que son", 'descripcio'],
+        'internship_hours': ['quentes hores', 'hores', 'dura'],
         'internship_period': ['quant', 'quan'],
         'internship_whenstart': ['quan es comença', 'començament', 'inici'],
-        'internship_steps': ['fases', 'seguiment', 'passos', 'passos'],
-        'internship_maxhours': ['maxim', 'maximes'],
-        'internship_salary': ['remunerades', 'remuneracio', 'cobrar', 'diners'],
-        'internship_aboard': ['a fora', 'exterior', 'pais', 'extranger'],
-        'internship_moreinfo': ['informacio'],
+        'internship_steps': ['fases', 'passos', 'passos', 'matricular-me', 'que he de fer', "com s'ha de fer"],
+        'internship_salary': ['remunerades', 'remuneracio', 'cobrar', 'diners', 'salari', 'cobro', 'diner', 'paguen'],
+        'internship_moreinfo': ['informacio', 'dubtes', 'dubte', 'saber mes', 'pregunta', 'preguntes'],
+        'internship_offers': ['oferta', 'ofertes', 'empresa', 'empreses', 'opcions', 'laboral', 'on puc fer'],
+        'internship_ownoffers': ['trobo jo', 'buscar jo', 'oferta meva', 'propia oferta'],
+        'internship_workleave': ['permis', 'permisos', 'justificant', 'justificants'],
+        'internship_folowup': ['tutor', 'tutora', 'seguiment', 'tutoria', 'professor', 'tutoria', 'supervisa'],
+        'internship_evaluation': ['evaluacio', 'avaluacio', 'nota', 'notes'],
     },
     'registration': {
         "registration_link": ["enllaç", "pagina", "link", "pagines"],
@@ -200,29 +200,6 @@ def _entity_language(query: str) -> str:
         return [function_name, language]
     return None
 
-# def _entity_year(query: str) -> str:
-#     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(year_regex, query)
-
-#     if m:
-#         query = query.replace(m.group(0), "")
-#         if m.group(1):
-#             year = m.group(1)
-#         return [function_name, year]
-#     return None
-
-
-# def _entity_professor(query: str) -> str:
-#     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-#     m = re.search(degree_regex, query)
-
-#     if m:
-#         query = query.replace(m.group(0), "")
-#         if m.group(1):
-#             professor = m.group(1)
-#         return [function_name, professor]
-#     return None
-
 
 def _entity_username(query: str) -> str:
     function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
@@ -237,34 +214,10 @@ def _entity_username(query: str) -> str:
     return None
 
 
-def _entity_year(query: str) -> str:
-    function_name = sys._getframe(  ).f_code.co_name.replace("_entity_","")
-
-    m = re.search(year_regex, query)
-    this_year = date.today().year
-    year = "" 
-
-    if m:
-        query = query.replace(m.group(0), "")
-        if m.group(2):
-            year = m.group(2) if len(year) == 4 else "20" + str(m.group(2))
- 
-        elif m.group(3):
-            year = this_year + 1
-
-        elif m.group(1):
-            year = this_year
-
-        return [function_name, str(year)]
-    return None
-
-
 def _entity(query: str) -> list:
     entities_found = []
     query = utils.preprocess(query)    
     query = utils.query_to_list(query)
-
-    # ['regim de permanencia', 'permanencia', "fer fora"],
 
     for entity in entities_dict:
         for word in entities_dict[entity]:
@@ -277,7 +230,7 @@ def _entity(query: str) -> list:
             if any(word in query for word in entities_dict[entity]):
                 entities_found.append([entity, True]) 
         
-    return entities_found #TODO: sorted list
+    return entities_found
 
 
 def _sub_entity(query: list) -> list:
@@ -294,7 +247,7 @@ def _sub_entity(query: list) -> list:
             if any(word in query for word in sub_entities_dict[entity][sub_entity]):
                 sub_entities_found.append([sub_entity, True])  
 
-    return sub_entities_found #TODO: sorted list
+    return sub_entities_found
 
 
 def get_module_functions() -> list:

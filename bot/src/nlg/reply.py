@@ -8,12 +8,12 @@ import bot.data as data
 import json
 
 
-def get_teacher_office(profe: str, room: str):
-    pass 
-
-
 def get_degree_schedule(degree, course, semester, mention = None):
     # subject_dict = get_from_db('degrees', degree)
+    if degree == "artificial":
+        degree = "ia"
+    elif degree =="telecos":
+        degree = "telecomunicacions"
 
     with open(f"bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
@@ -28,6 +28,10 @@ def get_degree_schedule(degree, course, semester, mention = None):
 
 def get_degree_exams(degree, semester, term):
     # subject_dict = get_from_db('degrees', degree)
+    if degree == "artificial":
+        degree = "ia"
+    elif degree =="telecos":
+        degree ="telecomunicacions"
 
     with open(f"bot/data/{degree}.json") as f:
         subject_dict = json.load(f)
@@ -42,6 +46,7 @@ def get_tfg_info(sub_entity_list):
 
     return subject_dict['tfg'][sub_entity_list]
 
+
 def get_registration_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
 
@@ -49,6 +54,7 @@ def get_registration_info(sub_entity_list):
         subject_dict = json.load(f)
 
     return subject_dict['registration'][sub_entity_list]
+
 
 def get_exchange_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
@@ -58,6 +64,7 @@ def get_exchange_info(sub_entity_list):
 
     return subject_dict['exchange'][sub_entity_list]
 
+
 def get_permanence_info(sub_entity_list):
     # subject_dict = get_from_db('degrees', degree)
 
@@ -65,6 +72,7 @@ def get_permanence_info(sub_entity_list):
         subject_dict = json.load(f)
 
     return subject_dict['permanence'][sub_entity_list]
+
 
 def get_credit_recognition_info(sub_entity_list):
     with open("bot/data/general.json") as f:
@@ -79,7 +87,7 @@ def get_internship_info(sub_entity_list):
     with open("bot/data/general.json") as f:
         subject_dict = json.load(f)
 
-    return subject_dict['practiques externes']['extracurricular'][sub_entity_list]
+    return subject_dict['practiques externes']['curricular'][sub_entity_list]
 
 
 def get_teaching_guide(degree, subject):
@@ -93,20 +101,19 @@ def get_teaching_guide(degree, subject):
 
 def generate(action: str, context: Context) -> str:    
     dynamic_info = ''
-    if action == 'teacher_office':
-        dynamic_info = get_teacher_office(context.professor)
-    
-    elif action == 'schedule':
+
+    if action == 'schedule':
         dynamic_info = get_degree_schedule(context.degree, context.course, context.semester, context.mention)
-        # context.course = None
-        # context.semester = None
+        context.degree = None
+        context.course = None
+        context.semester = None
         context.mention = None
 
     elif action == 'exams':
         dynamic_info = get_degree_exams(context.degree, context.semester, context.term)
-        # context = context.clean_context(['semester', 'term'])
-        # context.semester = None
-        # context.term = None
+        context.semester = None
+        context.term = None
+        context.degree = None
 
     elif action == 'teaching_guide':
         dynamic_info = get_teaching_guide(context.degree, context.subject)

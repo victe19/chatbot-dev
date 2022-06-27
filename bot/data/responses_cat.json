@@ -25,7 +25,7 @@
     },    
     "ask_course": {
         "id": 1.1,
-        "answers": ["D'acord {}, em podries indicar de quin curs?", "Quina curs {}?", "Em pots dir el curs, siusplau"]
+        "answers": ["D'acord {}, em podries indicar de quin curs?", "Quin curs {}?", "Em pots dir el curs, siusplau"]
     },   
     "ask_semester": {
         "id": 1.1,
@@ -97,7 +97,7 @@
     },
     "ask_procedures": {
         "id": 1.1,
-        "answers": ["De quin tràmit estem parlant {}?", "Quin tràmit desitges fer {}?"]
+        "answers": ["Et deixo el telèfon, l'adreça electrònica i l'enllaç a la pàgina de gestió acadèmica. Cal que t'adrecis a ells per qualsevol tipus de tràmit que necessitis fer. T: +34 93 581 30 49. @: ga.enginyeria@uab.cat. link: https://www.uab.cat/web/coneix-l-escola/serveis-escola/gestio-academica-1345737424322.html?"]
     },
     "ask_credit_recognition": {
         "id": 1.1,

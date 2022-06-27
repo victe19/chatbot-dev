@@ -35,31 +35,31 @@
 
     "exams": {
         "1": {
-            "parcials": "https://www.uab.cat/doc/Examens_parcials_EQ_1r_semestre",
-            "finals": "hhttps://www.uab.cat/doc/Grau_EQ_1r_semestre"
+            "parcials": "http://www.uab.cat/doc/EX_Grau_GestAeronautica_1rsem",
+            "finals": "http://www.uab.cat/doc/EX_Grau_GestAeronautica_1rsemre"
         },
         "2": {
-            "parcials": "https://www.uab.cat/doc/Examens_GEQ_2sem_parcials",
-            "finals": "https://www.uab.cat/doc/Examens_GEQ_2sem_finals"
+            "parcials": "http://www.uab.cat/doc/EX_Grau_GestAeronautica_2nsem",
+            "finals": "http://www.uab.cat/doc/EX_Grau_GestAeronautica_2nsem"
         } 
     },
 
     "schedule": {
         "1": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs1_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs1_Sem2"
+            "1": "https://www.uab.cat/doc/Horari_Aulari_Grau_GA_primer_semestre",
+            "2": "http://www.uab.cat/doc/Horari_Aulari_Grau_GA_segon_semestre"
         },
         "2": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs2_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs2_Sem2"
+            "1": "https://www.uab.cat/doc/Horari_Aulari_Grau_GA_primer_semestre",
+            "2": "http://www.uab.cat/doc/Horari_Aulari_Grau_GA_segon_semestre"
         },
         "3": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs3_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs3_Sem2"
+            "1": "https://www.uab.cat/doc/Horari_Aulari_Grau_GA_primer_semestre",
+            "2": "http://www.uab.cat/doc/Horari_Aulari_Grau_GA_segon_semestre"
         },
         "4": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs4_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs4_Sem2"
+            "1": "https://www.uab.cat/doc/Horari_Aulari_Grau_GA_primer_semestre",
+            "2": "http://www.uab.cat/doc/Horari_Aulari_Grau_GA_segon_semestre"
         }
     }
 }

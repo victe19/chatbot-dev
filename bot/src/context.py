@@ -13,6 +13,7 @@ class Context:
     professor: str = None
     semester: int = None
     status: str = "start"
+    prevstatus: str = "start"
     subject: str = None
     term: str = None
     username: str = ""
@@ -39,27 +40,6 @@ class Context:
                 setattr(self, entity_name, entity_value)
         if self.username:
             self.username = self.username.capitalize()
-
-
-    def scan_context(self) -> list:
-        status_list = []
-        for field in self.__dataclass_fields__:
-            if field is not None:
-                status_list.append(field)
-
-        return status_list
-
-
-    def clean_context(self, context_list):
-        for name in context_list:
-            self.name = None
-        return self
-        
-
-    def reset_context(self, name: str, status: str = "start_again"):
-        self = Context()
-        self.username = name
-        self.status = status
 
 
 

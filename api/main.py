@@ -30,86 +30,8 @@ def login():
   url = f"{staging}/auth/sign_in"
   response = requests.request("POST", url, headers=headers, data=payload)
 
-  
-  # comprobar el status code
-  # if statuscode == 200
-  
-  # else:
-  #   raise Exception 
 
   return response.text
-
-
-def create_contact(self):
-
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/contacts'
-
-  payload = json.dumps({
-    "inbox_id": self.inbox_id,
-    "name": "Daniel",
-    "email": "victe22@gmail.com",
-    "phone_number": "+16175551215",
-    "identifier": "4",
-    "custom_attributes": {}
-  })
-
-  response = requests.request("POST", url, headers=headers, data=payload)
-
-  json_response_dict = response.json()
-  print(json_response_dict)
-  # self.source_id =str(json_response_dict['payload']['contact_inbox']['source_id'])
-
-
-def create_conversation(self):
-
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations'
-
-  payload = json.dumps({
-    "source_id": self.account_id,
-    "inbox_id": 12939,
-    "contact_id": 3,
-    "additional_attributes": { },
-    "status": "open",
-    "assignee_id": 457,
-    "team_id": "string"
-  })
-
-  response = requests.request("POST", url, headers=headers, data=payload)
-  print(response.text)
-
-
-def create_agent_bot(self):
-
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/agent_bots'
-
-  payload = json.dumps({
-    "name": "victe",
-    "description": "joke enginner",
-    "outgoing_url": 'https://chatbot-dev-a51e0.web.app/'
-  })
-
-  response = requests.request("POST", url, headers=headers, data=payload)
-  print(response.text)
-
-
-
-def list_agent_bots(self):
-  """
-  Create an agent bot in the account
-
-  """
-  url = f'https://app.chatwoot.com/api/v1/accounts/69496/agent_bots'
-
-  response = requests.request("GET", url, headers=headers)
-  print(response.text)
-
-
-def get_agent_bot_details(self):
-
-  url = f'https://app.chatwoot.com/platform/api/v1/agent_bots/457'
-
-  response = requests.request("GET", url, headers=headers)
-  print(response.text)
 
 
 def get_open_conversations():
@@ -139,7 +61,6 @@ def get_new_conversations():
   pending_id_list = [payload['id'] for payload in payload_list]
   
   return pending_id_list
-  # return pending_conversations
 
 
 def post_exit_status(conversation_id: int):
@@ -177,8 +98,6 @@ def get_all_conversations():
   return open_conversations + new_conversations
 
 
-
-
 def get_messages_from_conversation(inbox: str):
 
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{inbox}/messages'
@@ -203,31 +122,4 @@ def post_messages_to_conversation(message: str, inbox: str):
   })  
 
   response = requests.request("POST", url, headers=headers, data=payload)
-  # print(f"Response Server: {response.status_code}")
-
-# class ConversationAPIBehavior():
-
-#   def on_start(self):
-#     print("Interacting with the API")
-#     self.api_access_token = 'nqmQPhPMojx6VU2XTfUEHVHC'
-#     self.account_id = 69496
-#     self.inbox_id = 12939
-#     self.url = 'http://app.chatwoot.com' 
-#     self.outgoing_url = 'https://chatbot-dev-a51e0.web.app/'
-
-#   def interact_with_conversation_api(self):
-#     login(self)
-#     get_open_conversations(self)
-#     message = get_messages_from_conversation()
-#     # self.contact_source_id = create_contact(self)
-#     # self.converation_id = create_conversation(self)
-#     # self.create_message = create_message(self)
-#     # self.recive_message = recive_message(self)
-#     # self.agent_bot_id = create_agent_bot(self)
-#     # self.create_agent_bot = list_agent_bots(self)
-#     # self.create_agent_bot = get_agent_bot_details(self)
-#     return message
-
-# if __name__ == '__main__':
-#   ConversationAPIBehavior().on_start()
-#   ConversationAPIBehavior().interact_with_conversation_api()
+  

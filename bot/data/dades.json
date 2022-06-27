@@ -39,27 +39,27 @@
             "finals": "http://www.uab.cat/doc/Grau_ED_1r_sem"
         },
         "2": {
-            "parcials": "https://www.uab.cat/doc/Examens_GEQ_2sem_parcials",
-            "finals": "https://www.uab.cat/doc/Examens_GEQ_2sem_finals"
+            "parcials": "http://www.uab.cat/doc/Examens_GED_2sem_parcials",
+            "finals": "http://www.uab.cat/doc/Examens_GED_2sem_finals"
         } 
     },
 
     "schedule": {
         "1": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs1_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs1_Sem2"
+            "1": "http://www.uab.cat/doc/Horari_GED_Curs1_Sem1",
+            "2": "http://www.uab.cat/doc/Horari_GED_Curs1_Sem2"
         },
         "2": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs2_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs2_Sem2"
+            "1": "http://www.uab.cat/doc/Horari_GED_Curs2_Sem1",
+            "2": "http://www.uab.cat/doc/Horari_GED_Curs2_Sem2"
         },
         "3": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs3_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs3_Sem2"
+            "1": "http://www.uab.cat/doc/Horari_GED_Curs3_Sem1",
+            "2": "http://www.uab.cat/doc/Horari_GED_Curs3_Sem2"
         },
         "4": {
-            "1": "https://www.uab.cat/doc/Horari_GEQ_Curs4_Sem1",
-            "2": "https://www.uab.cat/doc/Horari_GEQ_Curs4_Sem2"
+            "1": "http://www.uab.cat/doc/Horari_GED_Curs4_Sem1",
+            "2": "http://www.uab.cat/doc/Horari_GED_Curs4_Sem2"
         }
     }
 }

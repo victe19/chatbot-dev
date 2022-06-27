@@ -19,8 +19,3 @@ def test_setup_context():
     assert  context.course == "1"
     assert  context.degree == "informàtica"
 
-
-def test_clean_context():
-    context = Context()
-    context_list = []
-    pass

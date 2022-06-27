@@ -35,30 +35,11 @@ def init_conversation(conversation_id: str):
     # print(f'Estic activo amb el context {context.adeu}')
 
 
-    
 
 def substract_lists(list_1: List, list_2: List):
     return [el for el in list_1 if el not in list_2 ]
 
 # # login()
-
-# while 1:
-#     inbox = get_open_conversations()
-#     threads = []
-
-#     print(f"Conversations: {len(inboxes)}")
-#     print(f"Threads: {len(threads)}")
-    
-#     if len(inboxes) != len(threads):
-#         for inbox in inboxes:
-#             print("entramos")
-#             t = threading.Thread(target=init_conversation, args=(inbox,))
-#             threads.append(t)
-#             t.start()
-
-
-# if __name__ == "__main__":
-#     conversation_thread()
 
 def starter():
     print("Starting chat server")

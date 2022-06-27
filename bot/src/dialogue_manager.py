@@ -30,12 +30,12 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     print(f"{Fore.CYAN}Status --> {Fore.WHITE} {context.status}")
 
     action = 'no_understand'
-
     if 'username' in entity_list:
         action = 'hello'
     elif 'language' in entity_list:
         action = 'change_language'
     
+    # USER INTENTION
     elif entity_list == [] and subentity_list == []:
         if intent == 'greeting':
             if context.username == '':
@@ -75,142 +75,129 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
             action = ""      
 
         else:
+            context.status = 'start'
             action = 'ask_start_again'
 
-
-    elif intent == 'info' or intent == None:
-        if entity_list == [] and subentity_list == []:
-            action = 'ask_start'
+    #SCHEDULE
+    elif "schedule" == context.status:
+        if context.degree != None and context.course != None and context.semester != None:
+            if context.degree == "informatica" and context.course == "3" and context.mention == None:  
+                action = "ask_mention"
+            else:
+                action = "schedule"
+        elif context.degree == None:
+            action = "ask_degree"
+        elif context.course == None:
+            action = "ask_course"      
+        elif context.semester == None:
+            action = "ask_semester" 
     
-        #SCHEDULE
-        if "schedule" == context.status:
-            if context.degree != None and context.course != None and context.semester != None:
-                if context.degree == "informatica" and context.course == "3" and context.mention == None:  
-                    action = "ask_mention"
-                else:
-                    action = "schedule"
+
+    #EXAMS
+    elif "exams" == context.status:
+            if context.degree != None and context.term != None and context.semester != None:
+                action = "exams"
             elif context.degree == None:
                 action = "ask_degree"
-            elif context.course == None:
-                action = "ask_course"      
+            elif context.term == None:
+                action = "ask_term"    
             elif context.semester == None:
                 action = "ask_semester" 
-        
-
-        #EXAMS
-        elif "exams" == context.status: #or "degree" in entity_names or "semester" in entity_names: 
-                if context.degree != None and context.term != None and context.semester != None:
-                    action = "exams"
-                elif context.degree == None:
-                    action = "ask_degree"
-                elif context.term == None:
-                    action = "ask_term"    
-                elif context.semester == None:
-                    action = "ask_semester" 
-        
     
-        #TEACHING_GUIDE
-        elif "teaching_guide" == context.status: #or "degree" in entity_names or "subject" in entity_names: 
-                if context.degree != None and context.subject != None:
-                    action = "teaching_guide"
-                elif context.degree is None:
-                    action = "ask_degree"
-                elif context.subject is None:
-                    action = "ask_subject"
+
+    #TEACHING_GUIDE
+    elif "teaching_guide" == context.status:
+            if context.degree != None and context.subject != None:
+                action = "teaching_guide"
+            elif context.degree is None:
+                action = "ask_degree"
+            elif context.subject is None:
+                action = "ask_subject"
 
 
-        #TFG
-        elif "tfg" == context.status:
-            if subentity_list == []:
-                action = "ask_tfg"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'tfg_link'
+    #TFG
+    elif "tfg" == context.status:
+        if subentity_list == []:
+            action = "ask_tfg"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'tfg_link'
 
 
-        #REGISTRATION
-        elif "registration" == context.status:
-            if subentity_list == []:
-                action = "ask_registration"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'registration_link'
+    #REGISTRATION
+    elif "registration" == context.status:
+        if subentity_list == []:
+            action = "ask_registration"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'registration_link'
 
 
-        #INTERNSHIP
-        elif "internship" == context.status:
-            if subentity_list == []:
-                action = "ask_internship"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'internship_link'
+    #INTERNSHIP
+    elif "internship" == context.status:
+        if subentity_list == []:
+            action = "ask_internship"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'internship_link'
 
-        #ACADEMIC       
-        elif "academic"  == context.status:
-            action = "academic"
-        
+    #ACADEMIC       
+    elif "academic"  == context.status:
+        action = "academic"
+    
 
-        #EXCHANGE
-        elif "exchange" == context.status:
-            if subentity_list == []:
-                action = "ask_exchange"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'exchange_link'
-        
+    #EXCHANGE
+    elif "exchange" == context.status:
+        if subentity_list == []:
+            action = "ask_exchange"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'exchange_link'
+    
 
-        #CALENDAR
-        elif 'calendar' == context.status:
-            action = "ask_calendar"
-        
+    #CALENDAR
+    elif 'calendar' == context.status:
+        action = "ask_calendar"
+    
 
-        #PERMANENCE
-        elif 'permanence'  == context.status:
-            if subentity_list == []:
-                action = "ask_permanence"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'permanence_link'
-        
+    #PERMANENCE
+    elif 'permanence'  == context.status:
+        if subentity_list == []:
+            action = "ask_permanence"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'permanence_link'
+    
 
-        #PROCEDURES
-        elif 'procedures'  == context.status:
-            action = "ask_procedures"
-        
+    #PROCEDURES
+    elif 'procedures'  == context.status:
+        action = "ask_procedures"
+    
 
-        #CREDIT_RECOGNITION
-        elif 'credit_recognition' == context.status:
-            if subentity_list == []:
-                action = "ask_credit_recognition"
-            else:
-                try:
-                    action = get_status_subentity(subentity_list, context.status)[0]
-                except Exception as e:
-                    action = 'credit_recognition_link'
+    #CREDIT_RECOGNITION
+    elif 'credit_recognition' == context.status:
+        if subentity_list == []:
+            action = "ask_credit_recognition"
+        else:
+            try:
+                action = get_status_subentity(subentity_list, context.status)[0]
+            except Exception as e:
+                action = 'credit_recognition_link'
 
 
-        #COORDINATION
-        elif 'coordination' == context.status:
-            action = "ask_coordination"
-             
-
-        # #FLUX
-        # elif entity_list == []:
-        #     if context.status == 'start':
-        #         action = 'ask_start'
-        #     if context.status == 'start_again':
-        #         action = 'ask_start_again'
-
+    #COORDINATION
+    elif 'coordination' == context.status:
+        action = "ask_coordination"
 
     return [action, context]
 
