@@ -13,4 +13,11 @@ def test_get_from_db():
 
 
 def test_post_to_db():
-    post_to_db('bot/data/upload_db.json', 'degrees', 'info')
+    post_to_db('bot/data/informatica.json', 'degrees', 'informatica')
+    post_to_db('bot/data/ciutats.json', 'degrees', 'ciutats')
+    post_to_db('bot/data/dades.json', 'degrees', 'dades')
+    post_to_db('bot/data/electronica.json', 'degrees', 'electronica')
+    post_to_db('bot/data/ia.json', 'degrees', 'ia')
+    post_to_db('bot/data/quimica.json', 'degrees', 'quimica')
+    post_to_db('bot/data/telecomunicacions.json', 'degrees', 'telecomunicacions')
+    post_to_db('bot/data/electronica.json', 'degrees', 'electronica')
