@@ -28,7 +28,6 @@ entities_dict = {
     'internship': ['practiques', 'practiques', 'practicum', 'internship', 'estades', 'empresa', 'empreses'],
     'registration': ['matricula', 'matricula', 'matricular-me', 'matricules', 'matriculacio'],
     'schedule': ['horari', 'horaris', 'hores', 'franjes'],
-    'calendar': ['data', 'dates', 'dia', 'dies', 'setmana', 'setmanes'],
     'teaching_guide': ['guia docent', 'guia', 'docent', 'franjes'],
     'permanence': ['regim de permanencia', 'permanencia', "fer fora"],
     'procedures': ['tramit', 'tramits', 'tramit', 'tramits', 'gestio academica', 'gestio academica'],
@@ -95,7 +94,7 @@ sub_entities_dict = {
     'permanence': {
         "permanence_link": ["enllaç", "pagina", "link", "pagines"],
         "permanence_documentation": ["documentacio", "normativa", "document"],
-        "permanence_faqs": ["faqs", "preguntes", "pregunta", 'dubte', 'dubtes'],
+        "permanence_faqs": ["faqs", "preguntes", "pregunta", 'dubte', 'dubtes', "que"],
     },
     'credit_recognition': {
         "credit_recognition_link": ["enllaç", "pagina", "link", "pagines", "dubtes", "dubte", "pregunta"],

@@ -127,6 +127,10 @@
         "id": 1.1,
         "answers": ["Estic genial, gràcies per preguntar, fa temps que no m'ho preguntaven. Necessites alguna cosa?", "Estic molt bé. I tu? Et puc ajudar en alguna cosa?"]
     },
+    "date": {
+        "id": 1.1,
+        "answers": ["La data d'avui és ", "Avui és "]
+    },
     "nothing": {
         "id": 1.1,
         "answers": [""]

@@ -50,6 +50,9 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
         elif intent == 'bot':
             action = 'im_bot'
         
+        elif intent == 'date':
+            action = 'date_today'
+        
         elif intent == 'operator':
             action = 'need_operator'
         

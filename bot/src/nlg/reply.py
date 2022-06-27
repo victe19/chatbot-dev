@@ -1,3 +1,4 @@
+from datetime import datetime, date
 import random
 import re
 from bot.src.context import Context
@@ -132,9 +133,13 @@ def generate(action: str, context: Context) -> str:
         action = 'nothing'
 
     elif 'exchange' in action and action != 'ask_exchange':
-            dynamic_info = get_exchange_info(action)
-            action = 'nothing'
+        dynamic_info = get_exchange_info(action)
+        action = 'nothing'
     
+    elif 'date' in action:
+        dynamic_info = date.today().strftime("%d/%m/%y")
+        action = 'date'
+
     responses_language = 'responses_' + context.language
 
     responses = utils.json_parser(f"bot/data/{responses_language}.json")

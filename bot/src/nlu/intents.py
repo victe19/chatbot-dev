@@ -35,7 +35,7 @@ def cleverbot(query:str) -> float:
         confidence (float): probability that this query belongs to the intent greet
     """    
     query = utils.query_to_list(query)
-    word_list = ["que saps fer", "que pots fer", "que saps", "ets intl·ligent", "que et puc demanar", "que fas"]
+    word_list = ["que saps fer", "que pots fer", "que saps", "ets intl·ligent", "que et puc demanar", "que fas", "que et puc preguntar"]
 
     for word in word_list:
         if " " in word:
@@ -59,6 +59,29 @@ def insults(query:str) -> float:
     """    
     query = utils.query_to_list(query)
     word_list = ["gilipollas", "tonto", "retrassat", "fill de puta", "cabrón", "idiota"]
+
+    for word in word_list:
+        if " " in word:
+            if all(split_words in query for split_words in word.split()):
+                return 90
+    
+    if any(word in query for word in word_list):
+        return 90
+
+    return 0
+
+
+def date(query:str) -> float:
+    """_summary_
+
+    Args:
+        query (str): query without processing
+
+    Returns:
+        confidence (float): probability that this query belongs to the intent greet
+    """    
+    query = utils.query_to_list(query)
+    word_list = ["quin dia es avui", "que som avui", "dir la data", "data avui"]
 
     for word in word_list:
         if " " in word:
@@ -265,7 +288,7 @@ def get_module_functions() -> list:
 
 def intent_extraction(query: str) -> str:
     confidences = []
-    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye, cleverbot, insults, help, how_are_you]
+    intent_list = [greeting, confirm, reject, info, bot, operator, goodbye, cleverbot, insults, help, how_are_you, date]
 
     for intent in intent_list:
         confidence = intent(query)
