@@ -113,7 +113,7 @@ sub_entities_dict = {
         'permanence': {
             "permanence_link": ["enllaç", "pagina", "link", "pagines"],
             "permanence_documentation": ["documentacio", "normativa", "document"],
-            "permanence_faqs": ["faqs", "preguntes", "pregunta", 'dubte', 'dubtes', "que"],
+            "permanence_faqs": ["faqs", "preguntes", "pregunta", 'dubte', 'dubtes'],
         },
         'credit_recognition': {
         "credit_recognition_link": ["enllaç", "pagina", "link", "pagines", "dubtes", "dubte", "pregunta"],
@@ -182,7 +182,7 @@ sub_entities_dict = {
         'permanence': {
             "permanence_link": ["enlace", "pagina", "link", "paginas"],
             "permanence_documentation": ["documentacion", "normativa", "documento"],
-            "permanence_faqs": ["faqs", "preguntas", "pregunta", 'duda', 'dudas', "que"],
+            "permanence_faqs": ["faqs", "preguntas", "pregunta", 'duda', 'dudas'],
         },
         'credit_recognition': {
             "credit_recognition_link": ["enlace", "pagina", "link", "paginas", "dudas", "duda", "pregunta"],

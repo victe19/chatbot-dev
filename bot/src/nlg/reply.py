@@ -4,7 +4,7 @@ import re
 from bot.src.context import Context
 import bot.src.utils.utils as utils
 import bot.data as data
-from db.main import get_from_db
+# from db.main import get_from_db
 import json
 
 
@@ -15,13 +15,13 @@ def get_degree_schedule(degree, course, semester, mention = None):
     elif degree =="telecos":
         degree = "telecomunicacions"
 
-    try:
-        subject_dict = get_from_db('degrees', degree)
-        print("Got info from Firestore")
-    except Exception as e:
-        print(f"Get info from local, failed connection with DB: {e}")
-        with open(f"bot/data/{degree}.json") as f:
-            subject_dict = json.load(f)
+    # try:
+    #     subject_dict = get_from_db('degrees', degree)
+    #     print("Got info from Firestore")
+    # except Exception as e:
+    #     print(f"Get info from local, failed connection with DB: {e}")
+    with open(f"bot/data/{degree}.json") as f:
+        subject_dict = json.load(f)
     
     if mention is None:
         schedule = subject_dict['schedule'][course][semester]
@@ -37,13 +37,13 @@ def get_degree_exams(degree, semester, term):
     elif degree =="telecos":
         degree ="telecomunicacions"
 
-    try:
-        subject_dict = get_from_db('degrees', degree)
-        print("Got info from Firestore")
-    except Exception as e:
-        print(f"Get info from local, failed connection with DB: {e}")
-        with open(f"bot/data/{degree}.json") as f:
-            subject_dict = json.load(f)
+    # try:
+    #     subject_dict = get_from_db('degrees', degree)
+    #     print("Got info from Firestore")
+    # except Exception as e:
+    #     print(f"Get info from local, failed connection with DB: {e}")
+    with open(f"bot/data/{degree}.json") as f:
+        subject_dict = json.load(f)
 
     return subject_dict['exams'][semester][term]
 
