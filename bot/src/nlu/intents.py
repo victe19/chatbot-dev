@@ -270,8 +270,6 @@ def intent_extraction(query: str) -> str:
     for intent in intent_list:
         confidence = intent(query)
         confidences.append([intent.__name__,confidence])
-
-    #TODO: ignore greeting when more intents    
     
     confidences.sort(key=itemgetter(1), reverse=True)
     if confidences[0][1] != 0:

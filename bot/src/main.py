@@ -30,6 +30,12 @@ def init_conversation(conversation_id: str):
         # print(f"{Fore.YELLOW}Bot:{Fore.WHITE} {reply}")
         api.post_messages_to_conversation(reply, conversation_id)
     
+    # api.post_messages_to_conversation("Conversa tancada.", conversation_id)
+    # api.post_exit_status(conversation_id)
+    # print(f'Estic activo amb el context {context.adeu}')
+
+
+    
 
 def substract_lists(list_1: List, list_2: List):
     return [el for el in list_1 if el not in list_2 ]

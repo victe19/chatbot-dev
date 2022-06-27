@@ -38,7 +38,7 @@ def next_action(intent: str, entity_list: list, subentity_list:list, context: Co
     
     elif entity_list == [] and subentity_list == []:
         if intent == 'greeting':
-            if context.username != None:
+            if context.username == '':
                 action = 'ask_name'
             else:
                 action = 'hello'

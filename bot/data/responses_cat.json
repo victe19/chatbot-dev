@@ -1,7 +1,7 @@
 {
     "hello": {
         "id": 1.1,
-        "answers": ["Hola {}, encantat de saludar-te. Sóc en G.A.V.I.À el teu assistent virtual. Em podries indicar en què et puc ajudar?"]
+        "answers": ["Hola {}, encantat de saludar-te. Sóc en Graubot el teu assistent virtual. Em podries indicar en què et puc ajudar?", "Bones {}, encantat de tenir-te per aquí. Jo sóc en Graubot i t'intentaré ajudar en tot allò que pugui!"]
     },
     "change_language": {
         "id": 1.1,
@@ -61,7 +61,7 @@
     },    
     "im_bot": {
         "id": 1.1,
-        "answers": ["Ho has encertat {}! Em dic G.A.V.I.À i sóc un assistent virtual. Intentaré ajudar-te en tot el que pugui."]
+        "answers": ["Ho has encertat {}! Em dic Graubot i sóc un assistent virtual. Fes-me alguna pregunta!.", "Correcte {}! Em dic Graubot i sóc un assistent virtual de l'Escola"]
     },    
     "need_operator": {
         "id": 1.1,
@@ -101,7 +101,7 @@
     },
     "ask_credit_recognition": {
         "id": 1.1,
-        "answers": ["El reconeixament de crèdit està explicat en aquest enllaç. Tot i així, que necessites saber?", "Quines preguntes tens sobre el reconeixament de crèdits?"]
+        "answers": ["El reconeixament de crèdit està explicat en aquest enllaç: https://www.uab.cat/web/estudiar/masters-i-postgraus/informacio-academica/reconeixement-de-credits-1345737394690.html. Tot i així, que necessites saber?", "Quines preguntes tens sobre el reconeixament de crèdits?"]
     },
     "goodbye": {
         "id": 1.1,

@@ -142,7 +142,20 @@ def get_new_conversations():
   # return pending_conversations
 
 
-def assinge_conversations(conversation_id):
+def post_exit_status(conversation_id: int):
+
+  url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{conversation_id}/toggle_status'
+
+  data = json.dumps({ 
+      "status": 'resolved'
+  })  
+
+  response_pending = requests.request("POST", url, headers=headers, data=data)
+
+  # return pending_id_list
+
+
+def assinge_conversations(conversation_id: int):
 
   url = f'https://app.chatwoot.com/api/v1/accounts/69496/conversations/{conversation_id}/assignments'
 

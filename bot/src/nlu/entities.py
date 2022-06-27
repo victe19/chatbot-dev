@@ -3,6 +3,7 @@ import re
 import sys
 from datetime import date
 import bot.src.utils.utils as utils
+import dialogue_manager as dm
 
 degree_core_regex = "(?: ?(dades|(?:sistemes|electronica) de telecomunicacio|telecos|informatica|info |quimica|gestio aeronautica))" #done
 degree_regex = "(?:grau|carrera)?(?: en | de | d')?(?:enginyeria)?(?: de| en)?" + degree_core_regex #done
@@ -21,7 +22,6 @@ username_regex = "(?:(?:soc|soc)(?: el| en)?|el meu nom (?:es |es )|em dic )([^|
 
 
 entities_dict = {
-    #TODO: words must be more than one
     'academic': ['expedient academic', 'expedient academic', 'expedient'],
     'exams': ['examens', 'examen', 'examens', 'examen','proves', 'parcials', 'finals'],
     'exchange': ['estudiar fora', 'erasmus', 'exchange', 'sicue', 'destinacions', 'mobilitat', 'programa mobilitat', 'marxar fora'],
@@ -291,10 +291,9 @@ def _sub_entity(query: list) -> list:
             for word in sub_entities_dict[entity][sub_entity]:
                 if " " in word:
                     if all(split_words in query for split_words in word.split()):
-                        sub_entities_found.append([sub_entity, True]) 
-            if sub_entities_found == []:
-                if any(word in query for word in sub_entities_dict[entity][sub_entity]):
-                    sub_entities_found.append([sub_entity, True])  
+                        sub_entities_found.append([sub_entity, True])
+            if any(word in query for word in sub_entities_dict[entity][sub_entity]):
+                sub_entities_found.append([sub_entity, True])  
 
     return sub_entities_found #TODO: sorted list
 
@@ -319,7 +318,7 @@ def entities_extraction(query: str) -> list:
         if entity != None:
             entities_list.append(entity)
 
-    sub_entities_list = _sub_entity(query) #TODO
+    sub_entities_list = _sub_entity(query)
 
     return entities_list, sub_entities_list #TODO: sorted list
 
