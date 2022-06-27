@@ -159,9 +159,8 @@ def generate(action: str, context: Context) -> str:
         action = 'date'
 
     responses_language = 'responses_' + context.language
-
     responses = utils.json_parser(f"bot/data/{responses_language}.json")
-    answer_list = responses.get(action)["answers"]
+    answer_list = responses[action]["answers"]
     answer = answer_list[random.randint(0, len(answer_list)-1)]
     answer += dynamic_info
     reply = answer.format(context.username)

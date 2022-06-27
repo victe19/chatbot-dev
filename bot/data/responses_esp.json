@@ -110,5 +110,29 @@
     "no_understand": {
         "id": 1.1,
         "answers": ["Lo siento {}, no te he entendido. ¿Podrías repetir?", "No he podido entender lo último que me has dicho. ¿Me lo puedes repetir?", "Lo siento, no te entiendo." , "Puedes repetir, {}?"]
+    },
+    "ask_operations": {
+        "id": 1.1,
+        "answers": ["Quiero ayudarte en lo que necesites. Te puedo conseguir los horarios de las clases y de los exámenes de los grados de la escuela, enlace directo a las guías docentes, y puedo resolver dudas sobre la matricula, el régimen de permanencia, el tfg, las prácticas externas o el programa de movilidad de la UAB entre otros."]
+    },
+    "assertive_response": {
+        "id": 1.1,
+        "answers": ["No me gusta que me insultes. Si lo haces no te puedes ayudar", "¿Necesitas ayuda o sólo quieres desahogarte?"]
+    },
+    "ask_help": {
+        "id": 1.1,
+        "answers": ["Prueba a introducir frases cortas con peticiones simples del estilo - quiero la guía docente de álgebra - o - me puedes decir cuáles son los plazos de entrega del tfg - o - cuál es la duración de las prácticas curriculares-. El bot funciona con un tema principal (exámenes, matrícula, tfg, prácticas, etc) y un contexto (grado, curso, semestre, mención) de forma que cada vez que el tema principal cambia, se reinicia el contexto."]
+    },    
+    "im_fine": {
+        "id": 1.1,
+        "answers": ["Estoy genial, gracias por preguntar, hace tiempo que no me lo preguntaban. ¿Necesitas algo?", "Estoy muy bien. ¿Y tú? ¿Puedo ayudarte en algo?"]
+    },
+    "date": {
+        "id": 1.1,
+        "answers": ["La fecha de hoy es ", "Hoy es"]
+    },
+    "nothing": {
+        "id": 1.1,
+        "answers": [""]
     }
 }
